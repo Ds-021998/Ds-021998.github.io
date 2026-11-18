@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HabitAct case study, Dattatray Siraskar</title>
+<meta name="description" content="HabitAct: a VR language game for Meta Quest where you learn French by acting out everyday tasks.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="name" href="index.html">Dattatray Siraskar</a>
+    <nav aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="case-head">
+    <h1>HabitAct: learn a language by doing it</h1>
+    <p class="summary">A VR game where a guide gives you commands in French and you answer with your hands. Picking up the book is the answer to "Prends le livre". There are no menus and no answer buttons.</p>
+    <dl class="meta">
+      <div><dt>Course</dt><dd>DECO7230, UQ, 2026</dd></div>
+      <div><dt>Team</dt><dd>Individual</dd></div>
+      <div><dt>Platform</dt><dd>Unity 6, Meta Quest 3S</dd></div>
+      <div><dt>Testing</dt><dd>3 prototypes, 15 playtests</dd></div>
+    </dl>
+  </section>
+
+  <figure>
+    <img src="img/01-concept-evolution.jpg" alt="Four stages of the concept, from Duolingo Immersive to Lever and labels, Verbatim and HabitAct, with the key result of each playtest." width="1600" height="900">
+    <figcaption>Four versions over one semester. Each playtest changed what the next version was for.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>Language apps teach through taps on a phone. You pick the right answer from a list, but you never use the word. Research on Total Physical Response (Asher, 1969) and the enactment effect (Engelkamp and Zimmer, 1985) shows people remember words better when they act them out. I wanted to see what a lesson looks like when the action itself is the answer.</p>
+
+    <h2>Round 1: a room full of labels</h2>
+    <p>My first prototype put French labels on objects and used a physical lever to choose lessons. I tested it with 6 people.</p>
+    <p>All 6 tried to walk to the lessons before they found the lever. A room you can walk around invites walking, so a lever on top of that didn't help. Recall also tracked how memorable each object looked, not the act of labelling it.</p>
+    <p>So I dropped the labels and the lever and changed the idea: from nouns to verbs. The learner would perform spoken commands, and rooms would become levels.</p>
+  </div>
+
+  <div class="prose">
+    <h2>Round 2: the controls got in the way</h2>
+    <p>Verbatim was a single VR room with five commands. To understand why people failed, I gave every failed attempt a code: F1 for not understanding the word, F2 for the wrong action, F3 for the controller missing, and F4 for not finding the object.</p>
+    <p>That changed the conclusion. There were no comprehension errors in 25 attempts, but 8 of the 11 errors were F3. A low completion rate looked like a language problem. It was a controls problem, so the right fix was the opposite one.</p>
+  </div>
+
+  <div class="note">
+    <p>"I just pay more attention to how to put, rather than what is the word put in French."</p>
+    <p class="who">Round 2 tester</p>
+  </div>
+
+  <div class="prose">
+    <p>I made catch zones larger and more forgiving, added reach to grab, gave the guide a voice, and added a teaching stage before every test, because another tester asked what happens if you've never seen any of the words before.</p>
+
+    <h2>Round 3: HabitAct on the headset</h2>
+    <p>The final build is a four room apartment on the Meta Quest 3S. Each room teaches one skill, in the order Asher recommends: understand first, then speak.</p>
+  </div>
+
+  <figure>
+    <img src="img/02-course-map.jpg" alt="Map of the four rooms: hallway tutorial, kitchen for reading, living room for listening and bedroom for speaking." width="1600" height="973">
+    <figcaption>In the bedroom the roles swap. The learner says the command out loud and the guide carries it out.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>Ten verbs are each detected by a different physical action: you pull a drawer by its handle to open it and bring a cup to your mouth to drink. If your real head goes into a virtual wall, the view goes black so you can't peek into the next room. The game writes its own session log, because in round 2 my hand count and the score panel disagreed for 3 of 5 testers.</p>
+  </div>
+
+  <figure>
+    <img src="img/05-results-across-rounds.jpg" alt="Chart comparing the three rounds. Execution errors fell from 8 of 25 to 0, nouns recalled rose to a median of 5 of 6, and 4 of 4 testers repeated French aloud." width="1600" height="1145">
+    <figcaption>Small samples of 6, 5 and 4 testers, so these are trends, not proof.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>What didn't work, and what I'd do next</h2>
+    <p>Three of four final testers said listening was the hardest part, and the synthetic voice was the main reason. Long phrases were too much: "Mets la boîte sur le lit" was said understandably by only 1 of 4, while the short phrases worked 11 times out of 12. Next I'd use a native speaker's voice, add a visible replay button, play listening commands twice with the second slower, and split long phrases in half.</p>
+  </div>
+
+  <div class="role">
+    <h2>My role</h2>
+    <p>This was an individual project. The concept, all three iterations, the design decisions, the curriculum, the 15 playtests and the analysis are mine. I built the first prototype scene by hand. The C# scripts were written with Claude to my specification, as declared in my course submissions, and I tested every build and directed each fix.</p>
+    <p><a href="https://github.com/Ds-021998/habitact">Code, diagrams and playtest results on GitHub</a></p>
+  </div>
+
+  <nav class="next" aria-label="More work">
+    <a href="index.html">Back to all work</a>
+    <a href="proofolio.html">Next: Proofolio</a>
+  </nav>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
+</footer>
+</body>
+</html>
