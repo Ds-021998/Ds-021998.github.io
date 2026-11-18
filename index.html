@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f7fc">
+<meta name="theme-color" content="#eceef2">
 <title>Dattatray Siraskar, business analyst and interaction designer</title>
 <meta name="description" content="Portfolio of Dattatray Siraskar, a business analyst studying a Master of Interaction Design at The University of Queensland.">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 <header class="site-head">
@@ -15,98 +15,84 @@
     <nav aria-label="Main">
       <a href="#work">Work</a>
       <a href="experience.html">Experience</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Get in touch</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="space" aria-label="Introduction">
-    <div class="floor" aria-hidden="true"></div>
-    <div class="horizon" aria-hidden="true"></div>
-    <div class="wrap inner">
-      <h1>Turning ambiguity into <span class="glow">actionable roadmaps</span>.</h1>
-      <p class="lede">Business analyst with 3.5 years at Accenture and Birlasoft, now doing a Master of Interaction Design at The University of Queensland. I research with real people, prototype quickly and let the evidence decide. Based in Brisbane, open to business analyst, product and UX roles.</p>
-      <div class="cta">
-        <a class="btn" href="#work">See my work</a>
-        <a class="btn ghost" href="experience.html">My experience</a>
-      </div>
-    </div>
-    <div class="floating wrap" aria-label="Highlights">
-      <a class="chip c1" href="habitact.html" data-depth="0.9" style="left:calc(58% + 1rem); top:16%"><b>8 to 0</b><span>attempts lost to fiddly controls, after I redesigned the interactions</span></a>
-      <a class="chip c2" href="proofolio.html" data-depth="0.5" style="left:calc(100% - 13.5rem); top:31%"><b>32</b><span>interviews behind one evidence-tagged business model</span></a>
-      <a class="chip c3" href="experience.html" data-depth="1.2" style="left:calc(58% + 2.5rem); top:52%"><b>40%</b><span>fewer quoting errors at Accenture</span></a>
-      <a class="chip c4" href="experience.html" data-depth="0.7" style="left:calc(100% - 13rem); top:67%"><b>40+</b><span>enterprise bids at Birlasoft</span></a>
-    </div>
-  </section>
+<main class="wrap">
+  <div class="bento">
+    <section class="tile span3 hero" aria-label="Introduction">
+      <p class="status"><i aria-hidden="true"></i>Open to BA, product and UX roles in Brisbane</p>
+      <h1>Turning ambiguity into actionable roadmaps.</h1>
+      <p class="lede">Business analyst with 3.5 years at Accenture and Birlasoft, now doing a Master of Interaction Design at The University of Queensland. I research with real people, prototype quickly and let the evidence decide.</p>
+    </section>
 
-  <section class="wrap" id="work" aria-labelledby="work-h">
-    <div class="section-title">
-      <h2 id="work-h">Selected work</h2>
-      <p>Two case studies from this year</p>
-    </div>
-    <div class="cards">
-      <article class="tilt">
-        <span class="shine" aria-hidden="true"></span>
-        <img src="img/01-concept-evolution.jpg" alt="" width="1600" height="900">
-        <div class="body">
-          <h3><a href="habitact.html">HabitAct</a></h3>
-          <p class="kind">VR language game, solo project, Meta Quest 3S</p>
-          <p>A guide says "Prends le livre" and you answer by picking up the book. Three prototypes and 15 playtests turned a labelled room into a game where the action is the answer.</p>
-          <ul>
-            <li>Attempts lost to the controls fell from 8 in 25 to none</li>
-            <li>All four final testers spoke French aloud while playing</li>
-          </ul>
-          <span class="go">Read the case study</span>
-        </div>
-      </article>
-      <article class="tilt lilac">
-        <span class="shine" aria-hidden="true"></span>
-        <img src="img/12-mvp-capability-record.jpg" alt="" width="1440" height="900">
-        <div class="body">
-          <h3><a href="proofolio.html">Proofolio</a></h3>
-          <p class="kind">Web app for university feedback, team of five</p>
-          <p>Marker feedback usually disappears once the next assignment starts. I led the business model and requirements, drove the pivot to a verified record of student skills, and co-built the working app.</p>
-          <ul>
-            <li>Business model built on 32 interviews, every claim tagged by its evidence</li>
-            <li>18-page Django app with zero WCAG AA violations</li>
-          </ul>
-          <span class="go">Read the case study</span>
-        </div>
-      </article>
-    </div>
-  </section>
+    <section class="tile indigo stat">
+      <p class="label">At Accenture</p>
+      <div><p class="big"><span data-count="40">40</span>%</p><p class="what">fewer quoting errors after I redesigned the pricing models</p></div>
+    </section>
 
-  <section class="also wrap">
-    <p>Also: <a href="https://github.com/batinion/DECO_3500">Space-Cap</a>, a group time-capsule app built by a team of five, where I ran project management, documentation and the testing plan.</p>
-  </section>
+    <a class="tile span2 tall project" id="work" href="habitact.html">
+      <div class="shot"><img src="img/01-concept-evolution.jpg" alt="HabitAct design process across four versions" width="1600" height="900"></div>
+      <div class="text">
+        <p class="kind">VR language game, solo project, Meta Quest 3S</p>
+        <h2>HabitAct</h2>
+        <p class="desc">You learn French by doing what the guide says. Three prototypes and 15 playtests later, attempts lost to the controls fell from 8 in 25 to none.</p>
+        <span class="go">Read the case study</span>
+      </div>
+    </a>
 
-  <section class="about wrap" id="about">
-    <div class="glass">
-      <h2>About</h2>
-      <p>At Birlasoft and Accenture I ran requirements workshops with product owners and global stakeholders, configured Salesforce CPQ pricing models and wrote proposals for enterprise clients across banking and manufacturing.</p>
-      <p>Now I add the other half: watching people use things, and testing ideas before they become requirements. My background is in electronics and telecommunication engineering.</p>
-      <a class="btn" href="experience.html">See my experience, step by step</a>
-    </div>
-    <div class="stack">
-      <div class="glass">
-        <h2>Currently exploring</h2>
-        <p class="muted">How AI can be designed to feel emotionally meaningful for older adults. This is my Master's thesis at UQ, supervised by Dr Peter Worthy.</p>
+    <section class="tile dark stat">
+      <p class="label">Research</p>
+      <div><p class="big"><span data-count="32">32</span></p><p class="what">interviews behind one evidence-tagged business model</p></div>
+    </section>
+
+    <section class="tile lime stat">
+      <p class="label">At Birlasoft</p>
+      <div><p class="big"><span data-count="40">40</span>+</p><p class="what">enterprise bids supported as a business analyst</p></div>
+    </section>
+
+    <section class="tile span2">
+      <p class="label">Experience</p>
+      <div class="rows">
+        <div><span><b>Accenture</b></span><span>Sales Enablement Analyst, 2023 to 2024</span></div>
+        <div><span><b>Birlasoft</b></span><span>Business Analyst, 2020 to 2023</span></div>
+        <div><span><b>UQ</b></span><span>Master of Interaction Design, to 2027</span></div>
       </div>
-      <div class="glass" id="contact">
-        <h2>Say hello</h2>
-        <p><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><br>
-        <a href="mailto:dattatray.siraskar02@gmail.com">dattatray.siraskar02@gmail.com</a><br>
-        <a href="https://github.com/Ds-021998">GitHub</a></p>
+      <a class="more" href="experience.html">Read the full story</a>
+    </section>
+
+    <a class="tile span2 tall project" href="proofolio.html">
+      <div class="shot"><img src="img/12-mvp-capability-record.jpg" alt="Proofolio capability record screen" width="1440" height="900"></div>
+      <div class="text">
+        <p class="kind">Web app for university feedback, team of five</p>
+        <h2>Proofolio</h2>
+        <p class="desc">I led the business model and requirements, drove the pivot to a verified record of student skills, and co-built the Django app.</p>
+        <span class="go">Read the case study</span>
       </div>
-    </div>
-  </section>
+    </a>
+
+    <section class="tile span2 exploring">
+      <p class="label">Currently exploring</p>
+      <p class="big-text">How AI can feel emotionally meaningful for older adults. My Master's thesis at UQ, supervised by Dr Peter Worthy.</p>
+    </section>
+
+    <section class="tile span2 indigo contact" id="contact">
+      <h2>Hiring a business analyst in Brisbane? Let's talk.</h2>
+      <div class="pill-row">
+        <a class="pill" href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a>
+        <a class="pill ghost" href="mailto:dattatray.siraskar02@gmail.com">Email me</a>
+        <a class="pill ghost" href="https://github.com/Ds-021998">GitHub</a>
+      </div>
+    </section>
+  </div>
+  <p class="small-print">Also: <a href="https://github.com/batinion/DECO_3500">Space-Cap</a>, a group time-capsule app built by a team of five, where I ran project management, documentation and the testing plan.</p>
 </main>
 
 <footer class="site-foot">
   <div class="wrap"><span>Dattatray Siraskar, Brisbane</span></div>
 </footer>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
