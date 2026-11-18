@@ -1,174 +1,119 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Proofolio case study, Dattatray Siraskar</title>
-<meta name="description" content="Proofolio: turning university marker feedback into a verified record of what a student can do.">
-<link rel="stylesheet" href="style.css?v=13">
+<meta content="Proofolio: turning university marker feedback into a verified record of what a student can do." name="description"/>
+<link href="style.css?v=14" rel="stylesheet"/>
 </head>
 <body>
 <header class="site-head">
-  <div class="wrap">
-    <a class="name" href="index.html">Dattatray Siraskar</a>
-    <nav aria-label="Main">
-      <a href="index.html#work">Work</a>
-      <a href="experience.html">Experience</a>
-      <a class="cta" href="index.html#contact">Get in touch</a>
-    </nav>
-  </div>
+<div class="wrap">
+<a class="name" href="index.html">Dattatray Siraskar</a>
+<nav aria-label="Main">
+<a href="index.html#work">Work</a>
+<a href="experience.html">Experience</a>
+<a class="cta" href="index.html#contact">Get in touch</a>
+</nav>
+</div>
 </header>
-
 <main class="wrap sheet">
-  <section class="case-head">
-    <h1>Proofolio: feedback that becomes evidence</h1>
-    <p class="summary">A web app that keeps the judgement a marker makes against each criterion, carries it into the student's next assignment, and builds it into a dated record of what they can do.</p>
-    <dl class="meta">
-      <div><dt>Course</dt><dd>COMP7110, UQ, 2026</dd></div>
-      <div><dt>Team</dt><dd>Five members</dd></div>
-      <div><dt>My role</dt><dd>Business model, requirements, prototypes, co-developer</dd></div>
-      <div><dt>Built with</dt><dd>Django, SQLite</dd></div>
-    </dl>
-  </section>
-  <div class="case-body">
-  <div class="case-main">
-
-  <div class="prose">
-    <h2 id="the-problem">The problem</h2>
-    <p>In large university courses, feedback breaks down at both ends. Marks often arrive after the next assignment has started, and comments are short because sessional tutors are paid by the minute. Meanwhile, what a tutor notices while marking never reaches the coordinator or next semester's tutors, because most sessional staff don't come back.</p>
-  </div>
-
-  <div class="note">
-    <p>Feedback "disappears once the next assignment starts".</p>
-    <p class="who">What students told us in interviews</p>
-  </div>
-
-  <div class="prose">
-    <h2 id="testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</h2>
-    <p>Our team of five interviewed 32 people: students, tutors and an alumnus. I scored five candidate topics on access, evidence, crowding, buildability and ethics, wrote the direction brief the team chose, and conducted five of the interviews.</p>
-    <p>I built the team's Business Model Canvas and Value Proposition Canvas. The course method marked each item as a hypothesis, a fact or killed. I added a fourth state, so an idea backed by one or two people was never presented as fact alongside one backed by many.</p>
-  </div>
-
-  <div class="states" role="group" aria-label="Evidence states" data-explain="state-out">
-    <button type="button" aria-pressed="false"><b>Accepted</b><template><p><b>Accepted:</b> at least 3 participants across at least 2 independent researchers, pointing the same way, with nothing contradicting it. The only items stated as fact.</p></template></button>
-    <button type="button" aria-pressed="false"><b>Emerging</b><template><p><b>Emerging:</b> 1 or 2 participants, or 3 or more from a single researcher. Real evidence, but below the bar, so it was carried into the next round to test. This is the state I added.</p></template></button>
-    <button type="button" aria-pressed="false"><b>Assumption</b><template><p><b>Assumption:</b> no interview evidence yet, only literature, desk research or team reasoning. However strong the source, it stays an assumption until a participant confirms it.</p></template></button>
-    <button type="button" aria-pressed="false"><b>Refuted</b><template><p><b>Refuted:</b> contradicted by our own interviews. Kept on the canvas, struck through, so the team could see what we had ruled out.</p></template></button>
-  </div>
-  <div class="state-out prose" id="state-out" aria-live="polite"></div>
-
-  <figure>
-    <img src="img/05-iteration1-business-model-canvas.jpg" alt="Business Model Canvas key showing four evidence states: Accepted, Emerging, Assumption and Refuted." width="1440" height="900">
-    <figcaption>Accepted needed at least three participants across at least two researchers. Everything else was labelled for what it was.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <h2 id="five-requirements-that-were-really-one">Five requirements that were really one</h2>
-    <p>The team proposed 10 requirements. When I graded them, five turned out to be different views of the same object: the marking criterion. That became our value proposition. I cut four others, including a leaderboard and a help forum, with a reason for each.</p>
-  </div>
-
-  <section class="sorter" aria-labelledby="sort-h">
-    <h3 id="sort-h">Try it: sort the team's 10 requirements</h3>
-    <div class="controls">
-      <button type="button" data-mode="raw" aria-pressed="true">As proposed</button>
-      <button type="button" data-mode="sorted" aria-pressed="false">Show my verdicts</button>
-    </div>
-    <div class="groups">
-      <div class="group g-all"><ul class="reqs">
-          <li class="req" data-v="core"><span class="t">Tutor uploads the brief and the app pulls out what's assessed</span><span class="why">Written once, reused across every script</span></li>
-          <li class="req" data-v="core"><span class="t">Tutor sets checkpoints and marks against them</span><span class="why">Turns a blank comment box into a few clicks</span></li>
-          <li class="req" data-v="core"><span class="t">Tutor answers questions without re-reading the script</span><span class="why">The checkpoint is the shared context</span></li>
-          <li class="req" data-v="cut"><span class="t">Checkpoints hidden from students</span><span class="why">Hides the standard students are marked on, which is the problem itself</span></li>
-          <li class="req" data-v="core"><span class="t">Students see which skills an assessment builds</span><span class="why">Real only if the skills are the actual marking criteria</span></li>
-          <li class="req" data-v="core"><span class="t">A skills dashboard across courses</span><span class="why">Kept private, with no ranking</span></li>
-          <li class="req" data-v="fix"><span class="t">Live chat between tutor and student</span><span class="why">Right goal, but a tutor paid per script can't be on call. Made it asynchronous and tied to a checkpoint</span></li>
-          <li class="req" data-v="cut"><span class="t">Class help guide and forum</span><span class="why">UQ already has Ed Discussion for this</span></li>
-          <li class="req" data-v="cut"><span class="t">Achievements and a leaderboard</span><span class="why">Public ranking discourages the students we were trying to help</span></li>
-          <li class="req" data-v="cut"><span class="t">Market skills newsletter</span><span class="why">A different product for a different person</span></li>
-      </ul></div>
-      <div class="group g-core"><h3>One object: the marking criterion (5)</h3><ul class="reqs"></ul></div>
-      <div class="group g-fix"><h3>Reshaped (1)</h3><ul class="reqs"></ul></div>
-      <div class="group g-cut"><h3>Cut (4)</h3><ul class="reqs"></ul></div>
-    </div>
-  </section>
-
-  <div class="prose">
-    <p>I wrote the prototype plan, an eight-screen test flow at three levels of fidelity, and built the "Feedback to Action" prototype. Several of us built prototypes, and the team chose mine for group testing because it matched the agreed requirements most closely.</p>
-  </div>
-
-  <figure>
-    <img src="img/02-prototype-v1-feedback-to-action.jpg" alt="Prototype v1 showing the combined tutor and student view." width="1440" height="900">
-    <figcaption>Prototype v1: feedback tied to the criterion it was marked against.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <h2 id="the-pivot">The pivot</h2>
-    <p>Testing with a tutor mentor and the course coordinator showed that explaining feedback was too thin. ChatGPT already does it for free. But in my usability interviews, both participants asked, without prompting, for a university-verified record of their skills to show employers.</p>
-    <p>So I reframed the product. AI made explaining feedback free, but a qualified person's dated judgement of what a student actually did is still scarce. I defined four roles for the product: the student as user, the coordinator as champion, the tutor as gatekeeper and the faculty as buyer. Then I built a second prototype around that.</p>
-  </div>
-
-  <figure>
-    <img src="img/08-prototype-v2-side-by-side.jpg" alt="Prototype v2 screens shown side by side for different roles." width="1600" height="1000">
-    <figcaption>Prototype v2 added a role launcher, which fixed the role-switching confusion testers had with v1.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <h2 id="building-the-mvp">Building the MVP</h2>
-    <p>The team picked me and one teammate to build the app. I made the templates, styling and copy for every screen, the student views, the seed data and the documentation. My teammate built the data models, the tutor and coordinator views, the access tests and the deployment.</p>
-    <ul>
-      <li>18 pages and 9 database tables, with access rules for students, tutors and coordinators</li>
-      <li>Zero WCAG 2.0 and 2.1 AA violations across all 18 pages in axe-core, and all 21 colour contrast pairs pass</li>
-      <li>Checked at 320 pixels wide, at 200% zoom and by keyboard. Testing found four bugs, all fixed</li>
-    </ul>
-  </div>
-
-  <figure>
-    <div class="trio">
-      <img src="img/11-mvp-student-dashboard.jpg" alt="Student dashboard in the Proofolio app." width="1440" height="900">
-      <img src="img/15-mvp-marking-queue.jpg" alt="Tutor marking queue in the Proofolio app." width="1440" height="900">
-      <img src="img/17-mvp-coordinator-cohort.jpg" alt="Coordinator cohort view in the Proofolio app." width="1440" height="900">
-    </div>
-    <figcaption>The working app: student dashboard, tutor marking queue and coordinator cohort view.</figcaption>
-  </figure>
-
-  <div class="role">
-    <h2 id="my-role">My role</h2>
-    <p>Topic research and direction, five interviews, the Business Model and Value Proposition Canvases, requirements grading, the prototype plan, both prototypes, usability testing, the pivot, and co-building the MVP. Some research and design documents were drafted with Claude from my direction, decisions and interview data.</p>
-    <p><a href="https://github.com/Ds-021998/proofolio">App code, prototypes and research on GitHub</a></p>
-  </div>
-
-  </div>
-  <aside class="case-aside" aria-label="Case study summary">
-    <div class="aside-card">
-      <p class="aside-label">At a glance</p>
-      <div class="glance"><b>32</b><span>interviews across the team</span></div>
-      <div class="glance"><b>5 of 10</b><span>requirements were really one object</span></div>
-      <div class="glance"><b>18</b><span>pages in the working app</span></div>
-      <div class="glance"><b>0</b><span>WCAG AA violations</span></div>
-    </div>
-    <div class="aside-sticky">
-    <nav class="aside-card toc" aria-label="On this page">
-      <p class="aside-label">On this page</p>
-      <a href="#the-problem">The problem</a>
-      <a href="#testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</a>
-      <a href="#five-requirements-that-were-really-one">Five requirements that were really one</a>
-      <a href="#the-pivot">The pivot</a>
-      <a href="#building-the-mvp">Building the MVP</a>
-    </nav>
-    <a class="aside-card aside-link" href="https://github.com/Ds-021998/proofolio">App code and research on GitHub</a>
-    </div>
-  </aside>
-  </div>
-
-  <nav class="next" aria-label="More work">
-    <a href="habitact.html">Previous: HabitAct</a>
-    <a href="index.html">Back to all work</a>
-  </nav>
+<section class="case-head">
+<h1>Proofolio: feedback that becomes evidence</h1>
+<p class="summary">A web app that keeps the judgement a marker makes against each criterion, carries it into the student's next assignment, and builds it into a dated record of what they can do.</p>
+<dl class="meta">
+<div><dt>Course</dt><dd>COMP7110, UQ, 2026</dd></div>
+<div><dt>Team</dt><dd>Five members</dd></div>
+<div><dt>My role</dt><dd>Business model, requirements, prototypes, co-developer</dd></div>
+<div><dt>Built with</dt><dd>Django, SQLite</dd></div>
+</dl>
+</section>
+<div class="case-flow"><div class="glance-strip"><div class="glance-tile"><b>32</b><span>interviews across the team</span></div><div class="glance-tile"><b>5 of 10</b><span>requirements were really one object</span></div><div class="glance-tile"><b>18</b><span>pages in the working app</span></div><div class="glance-tile"><b>0</b><span>WCAG AA violations</span></div></div><nav aria-label="On this page" class="toc-row"><a href="#the-problem">The problem</a><a href="#testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</a><a href="#five-requirements-that-were-really-one">Five requirements that were really one</a><a href="#the-pivot">The pivot</a><a href="#building-the-mvp">Building the MVP</a></nav><div class="split"><div class="split-text"><div class="prose">
+<h2 id="the-problem">The problem</h2>
+<p>In large university courses, feedback breaks down at both ends. Marks often arrive after the next assignment has started, and comments are short because sessional tutors are paid by the minute. Meanwhile, what a tutor notices while marking never reaches the coordinator or next semester's tutors, because most sessional staff don't come back.</p>
+</div><div class="prose">
+<h2 id="testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</h2>
+<p>Our team of five interviewed 32 people: students, tutors and an alumnus. I scored five candidate topics on access, evidence, crowding, buildability and ethics, wrote the direction brief the team chose, and conducted five of the interviews.</p>
+<p>I built the team's Business Model Canvas and Value Proposition Canvas. The course method marked each item as a hypothesis, a fact or killed. I added a fourth state, so an idea backed by one or two people was never presented as fact alongside one backed by many.</p>
+</div><div aria-label="Evidence states" class="states" data-explain="state-out" role="group">
+<button aria-pressed="false" type="button"><b>Accepted</b><template><p><b>Accepted:</b> at least 3 participants across at least 2 independent researchers, pointing the same way, with nothing contradicting it. The only items stated as fact.</p></template></button>
+<button aria-pressed="false" type="button"><b>Emerging</b><template><p><b>Emerging:</b> 1 or 2 participants, or 3 or more from a single researcher. Real evidence, but below the bar, so it was carried into the next round to test. This is the state I added.</p></template></button>
+<button aria-pressed="false" type="button"><b>Assumption</b><template><p><b>Assumption:</b> no interview evidence yet, only literature, desk research or team reasoning. However strong the source, it stays an assumption until a participant confirms it.</p></template></button>
+<button aria-pressed="false" type="button"><b>Refuted</b><template><p><b>Refuted:</b> contradicted by our own interviews. Kept on the canvas, struck through, so the team could see what we had ruled out.</p></template></button>
+</div><div aria-live="polite" class="state-out prose" id="state-out"></div><div class="prose">
+<h2 id="five-requirements-that-were-really-one">Five requirements that were really one</h2>
+<p>The team proposed 10 requirements. When I graded them, five turned out to be different views of the same object: the marking criterion. That became our value proposition. I cut four others, including a leaderboard and a help forum, with a reason for each.</p>
+</div></div><div class="split-visual"><div class="note">
+<p>Feedback "disappears once the next assignment starts".</p>
+<p class="who">What students told us in interviews</p>
+</div><figure>
+<img alt="Business Model Canvas key showing four evidence states: Accepted, Emerging, Assumption and Refuted." height="900" src="img/05-iteration1-business-model-canvas.jpg" width="1440"/>
+<figcaption>Accepted needed at least three participants across at least two researchers. Everything else was labelled for what it was.</figcaption>
+</figure></div></div><div class="full"><section aria-labelledby="sort-h" class="sorter">
+<h3 id="sort-h">Try it: sort the team's 10 requirements</h3>
+<div class="controls">
+<button aria-pressed="true" data-mode="raw" type="button">As proposed</button>
+<button aria-pressed="false" data-mode="sorted" type="button">Show my verdicts</button>
+</div>
+<div class="groups">
+<div class="group g-all"><ul class="reqs">
+<li class="req" data-v="core"><span class="t">Tutor uploads the brief and the app pulls out what's assessed</span><span class="why">Written once, reused across every script</span></li>
+<li class="req" data-v="core"><span class="t">Tutor sets checkpoints and marks against them</span><span class="why">Turns a blank comment box into a few clicks</span></li>
+<li class="req" data-v="core"><span class="t">Tutor answers questions without re-reading the script</span><span class="why">The checkpoint is the shared context</span></li>
+<li class="req" data-v="cut"><span class="t">Checkpoints hidden from students</span><span class="why">Hides the standard students are marked on, which is the problem itself</span></li>
+<li class="req" data-v="core"><span class="t">Students see which skills an assessment builds</span><span class="why">Real only if the skills are the actual marking criteria</span></li>
+<li class="req" data-v="core"><span class="t">A skills dashboard across courses</span><span class="why">Kept private, with no ranking</span></li>
+<li class="req" data-v="fix"><span class="t">Live chat between tutor and student</span><span class="why">Right goal, but a tutor paid per script can't be on call. Made it asynchronous and tied to a checkpoint</span></li>
+<li class="req" data-v="cut"><span class="t">Class help guide and forum</span><span class="why">UQ already has Ed Discussion for this</span></li>
+<li class="req" data-v="cut"><span class="t">Achievements and a leaderboard</span><span class="why">Public ranking discourages the students we were trying to help</span></li>
+<li class="req" data-v="cut"><span class="t">Market skills newsletter</span><span class="why">A different product for a different person</span></li>
+</ul></div>
+<div class="group g-core"><h3>One object: the marking criterion (5)</h3><ul class="reqs"></ul></div>
+<div class="group g-fix"><h3>Reshaped (1)</h3><ul class="reqs"></ul></div>
+<div class="group g-cut"><h3>Cut (4)</h3><ul class="reqs"></ul></div>
+</div>
+</section></div><div class="split"><div class="split-text"><div class="prose">
+<p>I wrote the prototype plan, an eight-screen test flow at three levels of fidelity, and built the "Feedback to Action" prototype. Several of us built prototypes, and the team chose mine for group testing because it matched the agreed requirements most closely.</p>
+</div><div class="prose">
+<h2 id="the-pivot">The pivot</h2>
+<p>Testing with a tutor mentor and the course coordinator showed that explaining feedback was too thin. ChatGPT already does it for free. But in my usability interviews, both participants asked, without prompting, for a university-verified record of their skills to show employers.</p>
+<p>So I reframed the product. AI made explaining feedback free, but a qualified person's dated judgement of what a student actually did is still scarce. I defined four roles for the product: the student as user, the coordinator as champion, the tutor as gatekeeper and the faculty as buyer. Then I built a second prototype around that.</p>
+</div><div class="prose">
+<h2 id="building-the-mvp">Building the MVP</h2>
+<p>The team picked me and one teammate to build the app. I made the templates, styling and copy for every screen, the student views, the seed data and the documentation. My teammate built the data models, the tutor and coordinator views, the access tests and the deployment.</p>
+<ul>
+<li>18 pages and 9 database tables, with access rules for students, tutors and coordinators</li>
+<li>Zero WCAG 2.0 and 2.1 AA violations across all 18 pages in axe-core, and all 21 colour contrast pairs pass</li>
+<li>Checked at 320 pixels wide, at 200% zoom and by keyboard. Testing found four bugs, all fixed</li>
+</ul>
+</div></div><div class="split-visual"><figure>
+<img alt="Prototype v1 showing the combined tutor and student view." height="900" src="img/02-prototype-v1-feedback-to-action.jpg" width="1440"/>
+<figcaption>Prototype v1: feedback tied to the criterion it was marked against.</figcaption>
+</figure><figure>
+<img alt="Prototype v2 screens shown side by side for different roles." height="1000" src="img/08-prototype-v2-side-by-side.jpg" width="1600"/>
+<figcaption>Prototype v2 added a role launcher, which fixed the role-switching confusion testers had with v1.</figcaption>
+</figure></div></div><div class="full"><figure class="wide">
+<div class="trio">
+<img alt="Student dashboard in the Proofolio app." height="900" src="img/11-mvp-student-dashboard.jpg" width="1440"/>
+<img alt="Tutor marking queue in the Proofolio app." height="900" src="img/15-mvp-marking-queue.jpg" width="1440"/>
+<img alt="Coordinator cohort view in the Proofolio app." height="900" src="img/17-mvp-coordinator-cohort.jpg" width="1440"/>
+</div>
+<figcaption>The working app: student dashboard, tutor marking queue and coordinator cohort view.</figcaption>
+</figure></div><div class="full"><div class="role">
+<h2 id="my-role">My role</h2>
+<p>Topic research and direction, five interviews, the Business Model and Value Proposition Canvases, requirements grading, the prototype plan, both prototypes, usability testing, the pivot, and co-building the MVP. Some research and design documents were drafted with Claude from my direction, decisions and interview data.</p>
+<p><a href="https://github.com/Ds-021998/proofolio">App code, prototypes and research on GitHub</a></p>
+</div></div></div>
+<nav aria-label="More work" class="next">
+<a href="habitact.html">Previous: HabitAct</a>
+<a href="index.html">Back to all work</a>
+</nav>
 </main>
-
 <footer class="site-foot">
-  <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
+<div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
 </footer>
-<script src="script.js?v=13"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>

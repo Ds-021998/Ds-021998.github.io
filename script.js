@@ -211,7 +211,7 @@
 
 // Case studies: highlight the section you are reading in the side menu
 (function () {
-  const links = [...document.querySelectorAll(".toc a")];
+  const links = [...document.querySelectorAll(".toc a, .toc-row a")];
   if (!links.length || !("IntersectionObserver" in window)) return;
   const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
   const io = new IntersectionObserver((es) => es.forEach((e) => {

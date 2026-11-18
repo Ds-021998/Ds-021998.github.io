@@ -1,161 +1,106 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>HabitAct case study, Dattatray Siraskar</title>
-<meta name="description" content="HabitAct: a VR language game for Meta Quest where you learn French by acting out everyday tasks.">
-<link rel="stylesheet" href="style.css?v=13">
+<meta content="HabitAct: a VR language game for Meta Quest where you learn French by acting out everyday tasks." name="description"/>
+<link href="style.css?v=14" rel="stylesheet"/>
 </head>
 <body>
 <header class="site-head">
-  <div class="wrap">
-    <a class="name" href="index.html">Dattatray Siraskar</a>
-    <nav aria-label="Main">
-      <a href="index.html#work">Work</a>
-      <a href="experience.html">Experience</a>
-      <a class="cta" href="index.html#contact">Get in touch</a>
-    </nav>
-  </div>
+<div class="wrap">
+<a class="name" href="index.html">Dattatray Siraskar</a>
+<nav aria-label="Main">
+<a href="index.html#work">Work</a>
+<a href="experience.html">Experience</a>
+<a class="cta" href="index.html#contact">Get in touch</a>
+</nav>
+</div>
 </header>
-
 <main class="wrap sheet">
-  <section class="case-head">
-    <h1>HabitAct: learn a language by doing it</h1>
-    <p class="summary">A VR game where a guide gives you commands in French and you answer with your hands. Picking up the book is the answer to "Prends le livre". There are no menus and no answer buttons.</p>
-    <dl class="meta">
-      <div><dt>Course</dt><dd>DECO7230, UQ, 2026</dd></div>
-      <div><dt>Team</dt><dd>Individual</dd></div>
-      <div><dt>Platform</dt><dd>Unity 6, Meta Quest 3S</dd></div>
-      <div><dt>Testing</dt><dd>3 prototypes, 15 playtests</dd></div>
-    </dl>
-  </section>
-  <div class="case-body">
-  <div class="case-main">
-
-  <figure>
-    <img src="img/01-concept-evolution.jpg" alt="Four stages of the concept, from Duolingo Immersive to Lever and labels, Verbatim and HabitAct, with the key result of each playtest." width="1600" height="900">
-    <figcaption>Four versions over one semester. Each playtest changed what the next version was for.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <h2 id="the-problem">The problem</h2>
-    <p>Language apps teach through taps on a phone. You pick the right answer from a list, but you never use the word. Research on Total Physical Response (Asher, 1969) and the enactment effect (Engelkamp and Zimmer, 1985) shows people remember words better when they act them out. I wanted to see what a lesson looks like when the action itself is the answer.</p>
-
-    <h2 id="round-1-a-room-full-of-labels">Round 1: a room full of labels</h2>
-    <p>My first prototype put French labels on objects and used a physical lever to choose lessons. I tested it with 6 people.</p>
-    <p>All 6 tried to walk to the lessons before they found the lever. A room you can walk around invites walking, so a lever on top of that didn't help. Recall also tracked how memorable each object looked, not the act of labelling it.</p>
-    <p>So I dropped the labels and the lever and changed the idea: from nouns to verbs. The learner would perform spoken commands, and rooms would become levels.</p>
-  </div>
-
-  <div class="prose">
-    <h2 id="round-2-the-controls-got-in-the-way">Round 2: the controls got in the way</h2>
-    <p>Verbatim was a single VR room with five commands. To understand why people failed, I gave every failed attempt a code: F1 for not understanding the word, F2 for the wrong action, F3 for the controller missing, and F4 for not finding the object.</p>
-    <p>That changed the conclusion. There were no comprehension errors in 25 attempts, but 8 of the 11 errors were F3. A low completion rate looked like a language problem. It was a controls problem, so the right fix was the opposite one.</p>
-  </div>
-
-  <div class="codes" role="group" aria-label="Error codes" data-explain="code-out">
-    <button type="button" aria-pressed="false"><b>F1</b><span>Didn't understand</span><template><p><b>F1, comprehension:</b> picked the wrong object. <strong>0 in 25 attempts.</strong> Everyone understood the French. This is the code that told me the language design was working.</p></template></button>
-    <button type="button" aria-pressed="false"><b>F2</b><span>Wrong action</span><template><p><b>F2, verb:</b> right object, wrong action, like grabbing the lamp instead of pressing it. The lamp command was a deliberate test of whether people read the verb. Part of the remaining 3 errors.</p></template></button>
-    <button type="button" aria-pressed="false"><b>F3</b><span>Controller missed</span><template><p><b>F3, execution:</b> the right intent, but the grab or placement missed. <strong>8 of the 11 errors</strong>, mostly placing the apple on the tray. This is where the real problem was.</p></template></button>
-    <button type="button" aria-pressed="false"><b>F4</b><span>Couldn't find it</span><template><p><b>F4, search:</b> knew the word but couldn't find the object in the room. Part of the remaining 3 errors.</p></template></button>
-  </div>
-  <div class="code-out prose" id="code-out" aria-live="polite"></div>
-
-  <div class="note">
-    <p>"I just pay more attention to how to put, rather than what is the word put in French."</p>
-    <p class="who">Round 2 tester</p>
-  </div>
-
-  <div class="prose">
-    <p>I made catch zones larger and more forgiving, added reach to grab, gave the guide a voice, and added a teaching stage before every test, because another tester asked what happens if you've never seen any of the words before.</p>
-
-    <h2 id="round-3-habitact-on-the-headset">Round 3: HabitAct on the headset</h2>
-    <p>The final build is a four room apartment on the Meta Quest 3S. Each room teaches one skill, in the order Asher recommends: understand first, then speak.</p>
-  </div>
-
-  <figure>
-    <img src="img/02-course-map.jpg" alt="Map of the four rooms: hallway tutorial, kitchen for reading, living room for listening and bedroom for speaking." width="1600" height="973">
-    <figcaption>In the bedroom the roles swap. The learner says the command out loud and the guide carries it out.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <p>Ten verbs are each detected by a different physical action: you pull a drawer by its handle to open it and bring a cup to your mouth to drink. If your real head goes into a virtual wall, the view goes black so you can't peek into the next room. The game writes its own session log, because in round 2 my hand count and the score panel disagreed for 3 of 5 testers.</p>
-  </div>
-
-  <section class="rounds-ui" aria-labelledby="cmp">
-    <h2 id="cmp">Compare the three rounds</h2>
-    <div class="tablist" role="tablist" aria-label="Playtest rounds">
-      <button role="tab" id="t1" aria-controls="p1" aria-selected="false">Round 1</button>
-      <button role="tab" id="t2" aria-controls="p2" aria-selected="false">Round 2</button>
-      <button role="tab" id="t3" aria-controls="p3" aria-selected="true">Round 3</button>
-    </div>
-    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
-      <h3>Duolingo Immersive</h3><p class="sub">28 Aug 2026, 6 testers, desktop with simulated AR</p>
-      <div class="stats"><div class="stat"><div class="num">3.5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="58"></i></div></div><div class="stat"><div class="num">5 of 6</div><div class="lbl">Spoke aloud in the café task</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">6 of 6</div><div class="lbl">Tried to walk to the lessons first</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">4 of 6</div><div class="lbl">Found the lever unaided</div><div class="meter"><i data-w="67"></i></div></div></div>
-      <div class="lesson"><p><b>Learned:</b> a room you can walk around invites walking, so the lever didn't work.</p><p><b>Changed:</b> dropped labels and the lever. Learners would act out spoken commands instead.</p></div>
-    </div>
-    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-      <h3>Verbatim</h3><p class="sub">15 to 19 Oct 2026, 5 testers, XR Device Simulator</p>
-      <div class="stats"><div class="stat"><div class="num">4 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="67"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Comprehension errors in 25 attempts</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">8 of 25</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="32"></i></div></div><div class="stat"><div class="num">2 of 5</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="40"></i></div></div></div>
-      <div class="lesson"><p><b>Learned:</b> the language worked. The controls didn't.</p><p><b>Changed:</b> forgiving catch zones, reach to grab, a talking guide and a teaching stage.</p></div>
-    </div>
-    <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3">
-      <h3>HabitAct</h3><p class="sub">23 Oct 2026, 4 testers, Meta Quest 3S</p>
-      <div class="stats"><div class="stat"><div class="num">5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">4 of 4</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">11 of 12</div><div class="lbl">Short phrases said understandably</div><div class="meter"><i data-w="92"></i></div></div></div>
-      <div class="lesson"><p><b>Learned:</b> with the controls out of the way, everyone spoke French. Listening to a synthetic voice was still the hardest part.</p><p><b>Next:</b> a native speaker's voice, a replay button and shorter phrases.</p></div>
-    </div>
-  </section>
-
-  <figure>
-    <img src="img/05-results-across-rounds.jpg" alt="Chart comparing the three rounds. Execution errors fell from 8 of 25 to 0, nouns recalled rose to a median of 5 of 6, and 4 of 4 testers repeated French aloud." width="1600" height="1145">
-    <figcaption>Small samples of 6, 5 and 4 testers, so these are trends, not proof.</figcaption>
-  </figure>
-
-  <div class="prose">
-    <h2 id="what-didn-t-work-and-what-i-d-do-next">What didn't work, and what I'd do next</h2>
-    <p>Three of four final testers said listening was the hardest part, and the synthetic voice was the main reason. Long phrases were too much: "Mets la boîte sur le lit" was said understandably by only 1 of 4, while the short phrases worked 11 times out of 12. Next I'd use a native speaker's voice, add a visible replay button, play listening commands twice with the second slower, and split long phrases in half.</p>
-  </div>
-
-  <div class="role">
-    <h2 id="my-role">My role</h2>
-    <p>This was an individual project. The concept, all three iterations, the design decisions, the curriculum, the 15 playtests and the analysis are mine. I built the first prototype scene by hand. The C# scripts were written with Claude to my specification, as declared in my course submissions, and I tested every build and directed each fix.</p>
-    <p><a href="https://github.com/Ds-021998/habitact">Code, diagrams and playtest results on GitHub</a></p>
-  </div>
-
-  </div>
-  <aside class="case-aside" aria-label="Case study summary">
-    <div class="aside-card">
-      <p class="aside-label">At a glance</p>
-      <div class="glance"><b>15</b><span>playtests over 3 rounds</span></div>
-      <div class="glance"><b>8 to 0</b><span>attempts lost to the controls</span></div>
-      <div class="glance"><b>4 of 4</b><span>final testers spoke French aloud</span></div>
-      <div class="glance"><b>5 of 6</b><span>nouns remembered, median</span></div>
-    </div>
-    <div class="aside-sticky">
-    <nav class="aside-card toc" aria-label="On this page">
-      <p class="aside-label">On this page</p>
-      <a href="#the-problem">The problem</a>
-      <a href="#round-1-a-room-full-of-labels">Round 1: a room full of labels</a>
-      <a href="#round-2-the-controls-got-in-the-way">Round 2: the controls got in the way</a>
-      <a href="#round-3-habitact-on-the-headset">Round 3: HabitAct on the headset</a>
-      <a href="#cmp">Compare the three rounds</a>
-      <a href="#what-didn-t-work-and-what-i-d-do-next">What didn't work, and what I'd do next</a>
-    </nav>
-    <a class="aside-card aside-link" href="https://github.com/Ds-021998/habitact">Code and playtest data on GitHub</a>
-    </div>
-  </aside>
-  </div>
-
-  <nav class="next" aria-label="More work">
-    <a href="index.html">Back to all work</a>
-    <a href="proofolio.html">Next: Proofolio</a>
-  </nav>
+<section class="case-head">
+<h1>HabitAct: learn a language by doing it</h1>
+<p class="summary">A VR game where a guide gives you commands in French and you answer with your hands. Picking up the book is the answer to "Prends le livre". There are no menus and no answer buttons.</p>
+<dl class="meta">
+<div><dt>Course</dt><dd>DECO7230, UQ, 2026</dd></div>
+<div><dt>Team</dt><dd>Individual</dd></div>
+<div><dt>Platform</dt><dd>Unity 6, Meta Quest 3S</dd></div>
+<div><dt>Testing</dt><dd>3 prototypes, 15 playtests</dd></div>
+</dl>
+</section>
+<div class="case-flow"><div class="glance-strip"><div class="glance-tile"><b>15</b><span>playtests over 3 rounds</span></div><div class="glance-tile"><b>8 to 0</b><span>attempts lost to the controls</span></div><div class="glance-tile"><b>4 of 4</b><span>final testers spoke French aloud</span></div><div class="glance-tile"><b>5 of 6</b><span>nouns remembered, median</span></div></div><nav aria-label="On this page" class="toc-row"><a href="#the-problem">The problem</a><a href="#round-1-a-room-full-of-labels">Round 1: a room full of labels</a><a href="#round-2-the-controls-got-in-the-way">Round 2: the controls got in the way</a><a href="#round-3-habitact-on-the-headset">Round 3: HabitAct on the headset</a><a href="#cmp">Compare the three rounds</a><a href="#what-didn-t-work-and-what-i-d-do-next">What didn't work, and what I'd do next</a></nav><div class="full"><figure class="wide">
+<img alt="Four stages of the concept, from Duolingo Immersive to Lever and labels, Verbatim and HabitAct, with the key result of each playtest." height="900" src="img/01-concept-evolution.jpg" width="1600"/>
+<figcaption>Four versions over one semester. Each playtest changed what the next version was for.</figcaption>
+</figure></div><div class="split"><div class="split-text"><div class="prose"><h2 id="the-problem">The problem</h2>
+<p>Language apps teach through taps on a phone. You pick the right answer from a list, but you never use the word. Research on Total Physical Response (Asher, 1969) and the enactment effect (Engelkamp and Zimmer, 1985) shows people remember words better when they act them out. I wanted to see what a lesson looks like when the action itself is the answer.</p>
+</div><div class="prose"><h2 id="round-1-a-room-full-of-labels">Round 1: a room full of labels</h2>
+<p>My first prototype put French labels on objects and used a physical lever to choose lessons. I tested it with 6 people.</p>
+<p>All 6 tried to walk to the lessons before they found the lever. A room you can walk around invites walking, so a lever on top of that didn't help. Recall also tracked how memorable each object looked, not the act of labelling it.</p>
+<p>So I dropped the labels and the lever and changed the idea: from nouns to verbs. The learner would perform spoken commands, and rooms would become levels.</p>
+</div><div class="prose">
+</div></div><div class="split-visual"><figure><img alt="Early paper sketch of the conversation concept" height="1050" src="img/concept_sketch_1_conversation.jpg" width="1400"/><figcaption>An early paper sketch from the proposal: talk to a character, touch objects to see their names.</figcaption></figure></div></div><div class="split"><div class="split-text"><div class="prose"><h2 id="round-2-the-controls-got-in-the-way">Round 2: the controls got in the way</h2>
+<p>Verbatim was a single VR room with five commands. To understand why people failed, I gave every failed attempt a code: F1 for not understanding the word, F2 for the wrong action, F3 for the controller missing, and F4 for not finding the object.</p>
+<p>That changed the conclusion. There were no comprehension errors in 25 attempts, but 8 of the 11 errors were F3. A low completion rate looked like a language problem. It was a controls problem, so the right fix was the opposite one.</p>
+</div><div aria-label="Error codes" class="codes" data-explain="code-out" role="group">
+<button aria-pressed="false" type="button"><b>F1</b><span>Didn't understand</span><template><p><b>F1, comprehension:</b> picked the wrong object. <strong>0 in 25 attempts.</strong> Everyone understood the French. This is the code that told me the language design was working.</p></template></button>
+<button aria-pressed="false" type="button"><b>F2</b><span>Wrong action</span><template><p><b>F2, verb:</b> right object, wrong action, like grabbing the lamp instead of pressing it. The lamp command was a deliberate test of whether people read the verb. Part of the remaining 3 errors.</p></template></button>
+<button aria-pressed="false" type="button"><b>F3</b><span>Controller missed</span><template><p><b>F3, execution:</b> the right intent, but the grab or placement missed. <strong>8 of the 11 errors</strong>, mostly placing the apple on the tray. This is where the real problem was.</p></template></button>
+<button aria-pressed="false" type="button"><b>F4</b><span>Couldn't find it</span><template><p><b>F4, search:</b> knew the word but couldn't find the object in the room. Part of the remaining 3 errors.</p></template></button>
+</div><div aria-live="polite" class="code-out prose" id="code-out"></div><div class="prose">
+<p>I made catch zones larger and more forgiving, added reach to grab, gave the guide a voice, and added a teaching stage before every test, because another tester asked what happens if you've never seen any of the words before.</p>
+</div></div><div class="split-visual"><div class="note">
+<p>"I just pay more attention to how to put, rather than what is the word put in French."</p>
+<p class="who">Round 2 tester</p>
+</div></div></div><div class="split"><div class="split-text"><div class="prose"><h2 id="round-3-habitact-on-the-headset">Round 3: HabitAct on the headset</h2>
+<p>The final build is a four room apartment on the Meta Quest 3S. Each room teaches one skill, in the order Asher recommends: understand first, then speak.</p>
+</div><div class="prose">
+<p>Ten verbs are each detected by a different physical action: you pull a drawer by its handle to open it and bring a cup to your mouth to drink. If your real head goes into a virtual wall, the view goes black so you can't peek into the next room. The game writes its own session log, because in round 2 my hand count and the score panel disagreed for 3 of 5 testers.</p>
+</div></div><div class="split-visual"><figure>
+<img alt="Map of the four rooms: hallway tutorial, kitchen for reading, living room for listening and bedroom for speaking." height="973" src="img/02-course-map.jpg" width="1600"/>
+<figcaption>In the bedroom the roles swap. The learner says the command out loud and the guide carries it out.</figcaption>
+</figure></div></div><div class="full"><section aria-labelledby="cmp" class="rounds-ui">
+<h2 id="cmp">Compare the three rounds</h2>
+<div aria-label="Playtest rounds" class="tablist" role="tablist">
+<button aria-controls="p1" aria-selected="false" id="t1" role="tab">Round 1</button>
+<button aria-controls="p2" aria-selected="false" id="t2" role="tab">Round 2</button>
+<button aria-controls="p3" aria-selected="true" id="t3" role="tab">Round 3</button>
+</div>
+<div aria-labelledby="t1" class="panel" hidden="" id="p1" role="tabpanel">
+<h3>Duolingo Immersive</h3><p class="sub">28 Aug 2026, 6 testers, desktop with simulated AR</p>
+<div class="stats"><div class="stat"><div class="num">3.5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="58"></i></div></div><div class="stat"><div class="num">5 of 6</div><div class="lbl">Spoke aloud in the café task</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">6 of 6</div><div class="lbl">Tried to walk to the lessons first</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">4 of 6</div><div class="lbl">Found the lever unaided</div><div class="meter"><i data-w="67"></i></div></div></div>
+<div class="lesson"><p><b>Learned:</b> a room you can walk around invites walking, so the lever didn't work.</p><p><b>Changed:</b> dropped labels and the lever. Learners would act out spoken commands instead.</p></div>
+</div>
+<div aria-labelledby="t2" class="panel" hidden="" id="p2" role="tabpanel">
+<h3>Verbatim</h3><p class="sub">15 to 19 Oct 2026, 5 testers, XR Device Simulator</p>
+<div class="stats"><div class="stat"><div class="num">4 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="67"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Comprehension errors in 25 attempts</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">8 of 25</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="32"></i></div></div><div class="stat"><div class="num">2 of 5</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="40"></i></div></div></div>
+<div class="lesson"><p><b>Learned:</b> the language worked. The controls didn't.</p><p><b>Changed:</b> forgiving catch zones, reach to grab, a talking guide and a teaching stage.</p></div>
+</div>
+<div aria-labelledby="t3" class="panel" id="p3" role="tabpanel">
+<h3>HabitAct</h3><p class="sub">23 Oct 2026, 4 testers, Meta Quest 3S</p>
+<div class="stats"><div class="stat"><div class="num">5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">4 of 4</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">11 of 12</div><div class="lbl">Short phrases said understandably</div><div class="meter"><i data-w="92"></i></div></div></div>
+<div class="lesson"><p><b>Learned:</b> with the controls out of the way, everyone spoke French. Listening to a synthetic voice was still the hardest part.</p><p><b>Next:</b> a native speaker's voice, a replay button and shorter phrases.</p></div>
+</div>
+</section></div><div class="full"><figure class="wide">
+<img alt="Chart comparing the three rounds. Execution errors fell from 8 of 25 to 0, nouns recalled rose to a median of 5 of 6, and 4 of 4 testers repeated French aloud." height="1145" src="img/05-results-across-rounds.jpg" width="1600"/>
+<figcaption>Small samples of 6, 5 and 4 testers, so these are trends, not proof.</figcaption>
+</figure></div><div class="full"><div class="prose">
+<h2 id="what-didn-t-work-and-what-i-d-do-next">What didn't work, and what I'd do next</h2>
+<p>Three of four final testers said listening was the hardest part, and the synthetic voice was the main reason. Long phrases were too much: "Mets la boîte sur le lit" was said understandably by only 1 of 4, while the short phrases worked 11 times out of 12. Next I'd use a native speaker's voice, add a visible replay button, play listening commands twice with the second slower, and split long phrases in half.</p>
+</div></div><div class="full"><div class="role">
+<h2 id="my-role">My role</h2>
+<p>This was an individual project. The concept, all three iterations, the design decisions, the curriculum, the 15 playtests and the analysis are mine. I built the first prototype scene by hand. The C# scripts were written with Claude to my specification, as declared in my course submissions, and I tested every build and directed each fix.</p>
+<p><a href="https://github.com/Ds-021998/habitact">Code, diagrams and playtest results on GitHub</a></p>
+</div></div></div>
+<nav aria-label="More work" class="next">
+<a href="index.html">Back to all work</a>
+<a href="proofolio.html">Next: Proofolio</a>
+</nav>
 </main>
-
 <footer class="site-foot">
-  <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
+<div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
 </footer>
-<script src="script.js?v=13"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>

@@ -289,3 +289,36 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.75rem; max-w
   .reveal { opacity: 1; transform: none; transition: none; }
   .project, .project .shot img, .detail, .meter i, .btn, .pill { transition: none; }
 }
+
+/* Case studies: full-width flow. Text on the left, visuals and quotes on the right. */
+.case-flow { padding-bottom: 1rem; }
+.glance-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 0.5rem; }
+.glance-tile { background: var(--ground); border-radius: 20px; padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.glance-tile:first-child { background: var(--accent); color: #fff; }
+.glance-tile:first-child span { color: #e4e2ff; }
+.glance-tile b { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; }
+.glance-tile:not(:first-child) b { color: var(--accent); }
+.glance-tile span { font-size: 0.92rem; color: var(--muted); line-height: 1.35; }
+.toc-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1.25rem 0 0.5rem; padding: 0.35rem; border-radius: 999px; background: var(--ground); width: fit-content; max-width: 100%; }
+.toc-row a { text-decoration: none; color: var(--muted); font-size: 0.92rem; font-weight: 600; padding: 0.5rem 0.95rem; border-radius: 999px; transition: background .2s, color .2s; }
+.toc-row a:hover { background: var(--tile); color: var(--ink); }
+.toc-row a.active { background: var(--ink); color: #fff; }
+.split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; align-items: start; }
+.split-text .prose { max-width: none; }
+.split-visual { padding-top: 3.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.split-visual figure { margin: 0; }
+.split-visual .note { margin: 0; max-width: none; }
+.full .prose { max-width: 48rem; }
+.case-flow h2 { scroll-margin-top: 90px; }
+.case-flow .rounds-ui, .case-flow .codes, .case-flow .states { max-width: none; }
+.case-flow .codes, .case-flow .states { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.case-flow .role { max-width: none; }
+@media (max-width: 1000px) {
+  .split { grid-template-columns: 1fr; gap: 0; }
+  .split-visual { padding-top: 1.5rem; }
+  .glance-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toc-row { border-radius: 20px; }
+}
+@media (max-width: 600px) {
+  .case-flow .codes, .case-flow .states { grid-template-columns: 1fr 1fr; }
+}
