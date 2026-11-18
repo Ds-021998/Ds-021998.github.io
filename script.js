@@ -122,73 +122,63 @@
   }
 })();
 
-// Workshop wall: draggable sticky notes joined by dashed lines, and arrows that draw on scroll
+// Spatial layer: cursor light, parallax highlights, tilting cards, quiet reveals
 (function () {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const board = document.querySelector(".board");
-  const desktop = window.matchMedia("(min-width: 861px)");
+  const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const root = document.documentElement;
 
-  if (board) {
-    const notes = [...board.querySelectorAll(".sticky")];
-    const svg = board.querySelector(".links");
-    const ns = "http://www.w3.org/2000/svg";
-    const paths = notes.slice(1).map(() => svg.appendChild(document.createElementNS(ns, "path")));
-
-    const centre = (n) => {
-      const b = board.getBoundingClientRect(), r = n.getBoundingClientRect();
-      return [r.left - b.left + r.width / 2, r.top - b.top + r.height / 2];
-    };
-    const redraw = () => {
-      if (!desktop.matches) return;
-      paths.forEach((p, i) => {
-        const [x1, y1] = centre(notes[i]), [x2, y2] = centre(notes[i + 1]);
-        const mx = (x1 + x2) / 2, my = (y1 + y2) / 2 + 30;
-        p.setAttribute("d", `M${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}`);
+  // Light that follows the cursor
+  if (fine && !reduce) {
+    let raf;
+    window.addEventListener("pointermove", (e) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        root.style.setProperty("--mx", e.clientX + "px");
+        root.style.setProperty("--my", e.clientY + "px");
       });
-    };
+    }, { passive: true });
+  }
 
-    // Notes stick onto the wall one after another
-    if (!reduce) notes.forEach((n, i) => { n.style.animationDelay = 0.25 + i * 0.18 + "s"; n.classList.add("landed"); });
-    setTimeout(redraw, 50);
-    setTimeout(redraw, 1400);
-    window.addEventListener("resize", redraw);
+  // Highlights float at different depths and drift with the cursor
+  const chips = [...document.querySelectorAll(".chip")];
+  const desktop = window.matchMedia("(min-width: 901px)");
+  if (chips.length) {
+    if (!reduce) chips.forEach((c, i) => { c.style.animationDelay = 0.3 + i * 0.15 + "s"; c.classList.add("enter"); });
+    if (fine && !reduce) {
+      const hero = document.querySelector(".space");
+      hero.addEventListener("pointermove", (e) => {
+        if (!desktop.matches) return;
+        const r = hero.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        chips.forEach((c) => {
+          const d = parseFloat(c.dataset.depth || 1);
+          c.style.transform = `translate3d(${x * -40 * d}px, ${y * -30 * d}px, 0) rotateY(${x * 8}deg) rotateX(${y * -8}deg)`;
+        });
+      });
+      hero.addEventListener("pointerleave", () => chips.forEach((c) => (c.style.transform = "")));
+    }
+  }
 
-    notes.forEach((n) => {
-      let sx, sy, ox, oy, moved = false, active = false;
-      n.addEventListener("pointerdown", (e) => {
-        if (!desktop.matches || e.button !== 0) return;
-        active = true; moved = false;
-        sx = e.clientX; sy = e.clientY;
-        ox = n.offsetLeft; oy = n.offsetTop;
-        n.setPointerCapture(e.pointerId);
+  // Cards tilt towards the cursor, with a shine where the light hits
+  if (fine && !reduce) {
+    document.querySelectorAll(".tilt").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.style.transition = "transform .1s linear, border-color .3s";
+        card.style.transform = `rotateY(${(x - 0.5) * 12}deg) rotateX(${(0.5 - y) * 10}deg) translateZ(0)`;
+        card.style.setProperty("--gx", x * 100 + "%");
+        card.style.setProperty("--gy", y * 100 + "%");
       });
-      n.addEventListener("pointermove", (e) => {
-        if (!active) return;
-        const dx = e.clientX - sx, dy = e.clientY - sy;
-        if (!moved && Math.hypot(dx, dy) < 5) return;
-        moved = true;
-        n.classList.remove("landed");
-        n.classList.add("dragging");
-        const maxX = board.clientWidth - n.offsetWidth, maxY = board.clientHeight - n.offsetHeight;
-        n.style.left = Math.max(0, Math.min(maxX, ox + dx)) + "px";
-        n.style.top = Math.max(0, Math.min(maxY, oy + dy)) + "px";
-        redraw();
-      });
-      const end = () => { active = false; n.classList.remove("dragging"); };
-      n.addEventListener("pointerup", end);
-      n.addEventListener("pointercancel", end);
-      // A drag should not also open the link
-      n.addEventListener("click", (e) => { if (moved) { e.preventDefault(); moved = false; } });
-      n.addEventListener("dragstart", (e) => e.preventDefault());
+      card.addEventListener("pointerleave", () => { card.style.transition = ""; card.style.transform = ""; });
     });
   }
 
-  const arrows = document.querySelectorAll(".arrow");
-  if (arrows.length) {
-    if (reduce || !("IntersectionObserver" in window)) arrows.forEach((a) => a.classList.add("in"));
-    else {
-      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.6 });
-      arrows.forEach((a) => io.observe(a));
-    }
+  // Inner pages: blocks fade in once as they enter the view
+  const blocks = document.querySelectorAll("main.sheet figure, main.sheet .note, main.sheet .rounds-ui, main.sheet .sorter, main.sheet .role, main.sheet .codes, main.sheet .states");
+  if (blocks.length && !reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+    blocks.forEach((b) => { if (b.getBoundingClientRect().top > window.innerHeight) { b.classList.add("reveal"); io.observe(b); } });
   }
 })();
