@@ -183,20 +183,7 @@
   }
 })();
 
-// Home: stat numbers count up once when the page loads
-(function () {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  document.querySelectorAll(".big [data-count]").forEach((el, i) => {
-    const end = parseInt(el.dataset.count, 10), t0 = performance.now() + 250 + i * 120;
-    el.textContent = "0";
-    const step = (t) => {
-      const k = Math.max(0, Math.min(1, (t - t0) / 900));
-      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  });
-})();
+
 
 // Skills tile: filter pills dim the chips outside the chosen area
 (function () {
