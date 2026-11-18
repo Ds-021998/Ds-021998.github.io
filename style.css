@@ -408,3 +408,8 @@ main, .site-foot { position: relative; z-index: 1; }
   .milestones li { position: static; width: auto; text-align: left; opacity: 1 !important; transform: none !important; }
 }
 @media (max-width: 1200px) and (min-width: 901px) { .milestones li { width: 9.25rem; font-size: .9rem; padding: .6rem .7rem; } }
+
+/* Home grid bands: projects, experience, now */
+.bento > .band { grid-column: 1 / -1; margin: 1.75rem 0 -0.25rem; font-size: 1.5rem; letter-spacing: -0.03em; }
+.bento > .band:first-child { margin-top: 0; }
+.bento .tile.exploring.span2 p { max-width: 30rem; }
