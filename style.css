@@ -157,7 +157,7 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.75rem; max-w
 .case-main .prose { max-width: 46rem; }
 .case-main > :first-child h2, .case-main > div:first-child > h2:first-child { margin-top: 1rem; }
 .case-aside { align-self: stretch; display: flex; flex-direction: column; gap: 12px; padding-top: 1.5rem; }
-.aside-sticky { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 100px); overflow-y: auto; }
+.aside-sticky { display: flex; flex-direction: column; gap: 12px; }
 .aside-card { display: block; background: var(--ground); border-radius: 22px; padding: 1.25rem 1.3rem; }
 .aside-label { margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
 .glance { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.55rem 0; border-top: 1px solid #dcdfe6; }
