@@ -121,3 +121,74 @@
     buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.mode === "sorted")));
   }
 })();
+
+// Workshop wall: draggable sticky notes joined by dashed lines, and arrows that draw on scroll
+(function () {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const board = document.querySelector(".board");
+  const desktop = window.matchMedia("(min-width: 861px)");
+
+  if (board) {
+    const notes = [...board.querySelectorAll(".sticky")];
+    const svg = board.querySelector(".links");
+    const ns = "http://www.w3.org/2000/svg";
+    const paths = notes.slice(1).map(() => svg.appendChild(document.createElementNS(ns, "path")));
+
+    const centre = (n) => {
+      const b = board.getBoundingClientRect(), r = n.getBoundingClientRect();
+      return [r.left - b.left + r.width / 2, r.top - b.top + r.height / 2];
+    };
+    const redraw = () => {
+      if (!desktop.matches) return;
+      paths.forEach((p, i) => {
+        const [x1, y1] = centre(notes[i]), [x2, y2] = centre(notes[i + 1]);
+        const mx = (x1 + x2) / 2, my = (y1 + y2) / 2 + 30;
+        p.setAttribute("d", `M${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}`);
+      });
+    };
+
+    // Notes stick onto the wall one after another
+    if (!reduce) notes.forEach((n, i) => { n.style.animationDelay = 0.25 + i * 0.18 + "s"; n.classList.add("landed"); });
+    setTimeout(redraw, 50);
+    setTimeout(redraw, 1400);
+    window.addEventListener("resize", redraw);
+
+    notes.forEach((n) => {
+      let sx, sy, ox, oy, moved = false, active = false;
+      n.addEventListener("pointerdown", (e) => {
+        if (!desktop.matches || e.button !== 0) return;
+        active = true; moved = false;
+        sx = e.clientX; sy = e.clientY;
+        ox = n.offsetLeft; oy = n.offsetTop;
+        n.setPointerCapture(e.pointerId);
+      });
+      n.addEventListener("pointermove", (e) => {
+        if (!active) return;
+        const dx = e.clientX - sx, dy = e.clientY - sy;
+        if (!moved && Math.hypot(dx, dy) < 5) return;
+        moved = true;
+        n.classList.remove("landed");
+        n.classList.add("dragging");
+        const maxX = board.clientWidth - n.offsetWidth, maxY = board.clientHeight - n.offsetHeight;
+        n.style.left = Math.max(0, Math.min(maxX, ox + dx)) + "px";
+        n.style.top = Math.max(0, Math.min(maxY, oy + dy)) + "px";
+        redraw();
+      });
+      const end = () => { active = false; n.classList.remove("dragging"); };
+      n.addEventListener("pointerup", end);
+      n.addEventListener("pointercancel", end);
+      // A drag should not also open the link
+      n.addEventListener("click", (e) => { if (moved) { e.preventDefault(); moved = false; } });
+      n.addEventListener("dragstart", (e) => e.preventDefault());
+    });
+  }
+
+  const arrows = document.querySelectorAll(".arrow");
+  if (arrows.length) {
+    if (reduce || !("IntersectionObserver" in window)) arrows.forEach((a) => a.classList.add("in"));
+    else {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.6 });
+      arrows.forEach((a) => io.observe(a));
+    }
+  }
+})();

@@ -21,66 +21,71 @@
 </header>
 
 <main>
-  <section class="intro wrap">
+  <section class="board wrap" aria-label="Introduction">
+    <svg class="links" aria-hidden="true"></svg>
     <h1>I find out <span class="scribble">what's really going wrong<svg viewBox="0 0 500 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 120 4, 260 18, 497 7"/></svg></span> before deciding what to fix.</h1>
-    <p class="lede">I'm a business analyst with 3.5 years at Accenture and Birlasoft, now doing a Master of Interaction Design at The University of Queensland. I research with real people, prototype quickly and let the evidence decide. Based in Brisbane, open to business analyst, product and UX roles.</p>
-    <ul class="proof-strip" aria-label="Highlights">
-      <li><a href="habitact.html"><strong>8 to 0</strong> controller errors across playtests</a></li>
-      <li><a href="proofolio.html"><strong>32</strong> interviews behind one business model</a></li>
-      <li><a href="experience.html"><strong>40%</strong> fewer quoting errors at Accenture</a></li>
-      <li><a href="experience.html"><strong>40+</strong> enterprise bids at Birlasoft</a></li>
-    </ul>
+    <p class="lede">Business analyst with 3.5 years at Accenture and Birlasoft, now doing a Master of Interaction Design at The University of Queensland. I research with real people, prototype quickly and let the evidence decide. Based in Brisbane, open to business analyst, product and UX roles.</p>
+    <p class="hint" aria-hidden="true">Go on, move the notes around. That's how I run a workshop.</p>
+
+    <div class="stickies">
+      <a class="sticky" href="habitact.html" style="--r:-3deg; left:calc(58% + 1.5rem); top:4rem"><b>8 to 0</b><span>attempts lost to fiddly controls, after I redesigned the interactions</span></a>
+      <a class="sticky pink" href="proofolio.html" style="--r:2.5deg; left:calc(100% - 12rem); top:9.5rem"><b>32</b><span>interviews behind one evidence-tagged business model</span></a>
+      <a class="sticky mint" href="experience.html" style="--r:-1.5deg; left:calc(58% + 3rem); top:20rem"><b>40%</b><span>fewer quoting errors at Accenture</span></a>
+      <a class="sticky sky" href="experience.html" style="--r:3deg; left:calc(100% - 11.5rem); top:25rem"><b>40+</b><span>enterprise bids at Birlasoft</span></a>
+    </div>
   </section>
 
-  <section class="work wrap" id="work" aria-label="Selected work">
-    <article class="project">
-      <a href="habitact.html" aria-hidden="true" tabindex="-1"><img src="img/01-concept-evolution.jpg" alt="" width="1600" height="900"></a>
-      <div>
+  <section class="wrap" id="work" aria-labelledby="work-h">
+    <svg class="arrow" viewBox="0 0 120 50" aria-hidden="true"><path d="M5 10 C 40 45, 80 45, 110 20 M96 16 L111 19 L106 33"/></svg>
+    <h2 id="work-h" class="section-label">Pinned to the wall: my work</h2>
+    <div class="pins">
+      <article class="pin">
+        <img src="img/01-concept-evolution.jpg" alt="" width="1600" height="900">
         <h2><a href="habitact.html">HabitAct</a></h2>
-        <p class="kind">VR language game, individual project, Meta Quest 3S</p>
+        <p class="kind">VR language game, solo project, Meta Quest 3S</p>
         <p>A guide says "Prends le livre" and you answer by picking up the book. Three prototypes and 15 playtests turned a labelled room into a game where the action is the answer.</p>
-        <ul class="facts">
-          <li>Execution errors went from 8 in 25 attempts to none</li>
+        <ul>
+          <li>Attempts lost to the controls fell from 8 in 25 to none</li>
           <li>All four final testers spoke French aloud while playing</li>
         </ul>
-        <a class="btn" href="habitact.html">Read the HabitAct case study</a>
-      </div>
-    </article>
-
-    <article class="project">
-      <a href="proofolio.html" aria-hidden="true" tabindex="-1"><img src="img/12-mvp-capability-record.jpg" alt="" width="1440" height="900"></a>
-      <div>
+        <span class="tag">Read the case study</span>
+      </article>
+      <article class="pin">
+        <img src="img/12-mvp-capability-record.jpg" alt="" width="1440" height="900">
         <h2><a href="proofolio.html">Proofolio</a></h2>
         <p class="kind">Web app for university feedback, team of five</p>
         <p>Marker feedback usually disappears once the next assignment starts. I led the business model and requirements, drove the pivot to a verified record of student skills, and co-built the working app.</p>
-        <ul class="facts">
-          <li>Business model built on 32 interviews, with every claim tagged by its evidence</li>
+        <ul>
+          <li>Business model built on 32 interviews, every claim tagged by its evidence</li>
           <li>18-page Django app with zero WCAG AA violations</li>
         </ul>
-        <a class="btn" href="proofolio.html">Read the Proofolio case study</a>
-      </div>
-    </article>
+        <span class="tag">Read the case study</span>
+      </article>
+    </div>
   </section>
 
   <section class="also wrap">
-    <h2>Also</h2>
-    <p class="prose"><a href="https://github.com/batinion/DECO_3500">Space-Cap</a>, a group time-capsule app built by a team of five. I ran project management, documentation and the testing plan.</p>
+    <p>Also: <a href="https://github.com/batinion/DECO_3500">Space-Cap</a>, a group time-capsule app built by a team of five, where I ran project management, documentation and the testing plan.</p>
   </section>
 
   <section class="about wrap" id="about">
-    <div class="prose">
+    <div class="paper">
       <h2>About</h2>
       <p>At Birlasoft and Accenture I ran requirements workshops with product owners and global stakeholders, configured Salesforce CPQ pricing models and wrote proposals for enterprise clients across banking and manufacturing.</p>
       <p>Now I add the other half: watching people use things, and testing ideas before they become requirements. My background is in electronics and telecommunication engineering.</p>
       <a class="btn" href="experience.html">See my experience, step by step</a>
     </div>
-    <div class="prose">
-      <h2>Currently exploring</h2>
-      <p>How AI can be designed to feel emotionally meaningful for older adults. This is my Master's thesis at UQ, supervised by Dr Peter Worthy.</p>
-      <h2 id="contact">Contact</h2>
-      <p><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><br>
-      <a href="mailto:dattatray.siraskar02@gmail.com">dattatray.siraskar02@gmail.com</a><br>
-      <a href="https://github.com/Ds-021998">GitHub</a></p>
+    <div class="note-col">
+      <div class="card-note">
+        <h2>Currently exploring</h2>
+        <p>How AI can be designed to feel emotionally meaningful for older adults. This is my Master's thesis at UQ, supervised by Dr Peter Worthy.</p>
+      </div>
+      <div class="card-note" id="contact">
+        <h2>Say hello</h2>
+        <p><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><br>
+        <a href="mailto:dattatray.siraskar02@gmail.com">dattatray.siraskar02@gmail.com</a><br>
+        <a href="https://github.com/Ds-021998">GitHub</a></p>
+      </div>
     </div>
   </section>
 </main>
