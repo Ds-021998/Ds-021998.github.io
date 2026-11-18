@@ -13,6 +13,7 @@
     <a class="name" href="index.html">Dattatray Siraskar</a>
     <nav aria-label="Main">
       <a href="index.html#work">Work</a>
+      <a href="experience.html">Experience</a>
       <a href="index.html#about">About</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -52,6 +53,14 @@
     <p>That changed the conclusion. There were no comprehension errors in 25 attempts, but 8 of the 11 errors were F3. A low completion rate looked like a language problem. It was a controls problem, so the right fix was the opposite one.</p>
   </div>
 
+  <div class="codes" role="group" aria-label="Error codes" data-explain="code-out">
+    <button type="button" aria-pressed="false"><b>F1</b><span>Didn't understand</span><template><p><b>F1, comprehension:</b> picked the wrong object. <strong>0 in 25 attempts.</strong> Everyone understood the French. This is the code that told me the language design was working.</p></template></button>
+    <button type="button" aria-pressed="false"><b>F2</b><span>Wrong action</span><template><p><b>F2, verb:</b> right object, wrong action, like grabbing the lamp instead of pressing it. The lamp command was a deliberate test of whether people read the verb. Part of the remaining 3 errors.</p></template></button>
+    <button type="button" aria-pressed="false"><b>F3</b><span>Controller missed</span><template><p><b>F3, execution:</b> the right intent, but the grab or placement missed. <strong>8 of the 11 errors</strong>, mostly placing the apple on the tray. This is where the real problem was.</p></template></button>
+    <button type="button" aria-pressed="false"><b>F4</b><span>Couldn't find it</span><template><p><b>F4, search:</b> knew the word but couldn't find the object in the room. Part of the remaining 3 errors.</p></template></button>
+  </div>
+  <div class="code-out prose" id="code-out" aria-live="polite"></div>
+
   <div class="note">
     <p>"I just pay more attention to how to put, rather than what is the word put in French."</p>
     <p class="who">Round 2 tester</p>
@@ -72,6 +81,30 @@
   <div class="prose">
     <p>Ten verbs are each detected by a different physical action: you pull a drawer by its handle to open it and bring a cup to your mouth to drink. If your real head goes into a virtual wall, the view goes black so you can't peek into the next room. The game writes its own session log, because in round 2 my hand count and the score panel disagreed for 3 of 5 testers.</p>
   </div>
+
+  <section class="rounds-ui" aria-labelledby="cmp">
+    <h2 id="cmp">Compare the three rounds</h2>
+    <div class="tablist" role="tablist" aria-label="Playtest rounds">
+      <button role="tab" id="t1" aria-controls="p1" aria-selected="false">Round 1</button>
+      <button role="tab" id="t2" aria-controls="p2" aria-selected="false">Round 2</button>
+      <button role="tab" id="t3" aria-controls="p3" aria-selected="true">Round 3</button>
+    </div>
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+      <h3>Duolingo Immersive</h3><p class="sub">28 Aug 2026, 6 testers, desktop with simulated AR</p>
+      <div class="stats"><div class="stat"><div class="num">3.5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="58"></i></div></div><div class="stat"><div class="num">5 of 6</div><div class="lbl">Spoke aloud in the café task</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">6 of 6</div><div class="lbl">Tried to walk to the lessons first</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">4 of 6</div><div class="lbl">Found the lever unaided</div><div class="meter"><i data-w="67"></i></div></div></div>
+      <div class="lesson"><p><b>Learned:</b> a room you can walk around invites walking, so the lever didn't work.</p><p><b>Changed:</b> dropped labels and the lever. Learners would act out spoken commands instead.</p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <h3>Verbatim</h3><p class="sub">15 to 19 Oct 2026, 5 testers, XR Device Simulator</p>
+      <div class="stats"><div class="stat"><div class="num">4 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="67"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Comprehension errors in 25 attempts</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">8 of 25</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="32"></i></div></div><div class="stat"><div class="num">2 of 5</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="40"></i></div></div></div>
+      <div class="lesson"><p><b>Learned:</b> the language worked. The controls didn't.</p><p><b>Changed:</b> forgiving catch zones, reach to grab, a talking guide and a teaching stage.</p></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3">
+      <h3>HabitAct</h3><p class="sub">23 Oct 2026, 4 testers, Meta Quest 3S</p>
+      <div class="stats"><div class="stat"><div class="num">5 of 6</div><div class="lbl">Nouns recalled, median</div><div class="meter"><i data-w="83"></i></div></div><div class="stat"><div class="num">0</div><div class="lbl">Attempts lost to the controls</div><div class="meter"><i data-w="0"></i></div></div><div class="stat"><div class="num">4 of 4</div><div class="lbl">Repeated the French aloud</div><div class="meter"><i data-w="100"></i></div></div><div class="stat"><div class="num">11 of 12</div><div class="lbl">Short phrases said understandably</div><div class="meter"><i data-w="92"></i></div></div></div>
+      <div class="lesson"><p><b>Learned:</b> with the controls out of the way, everyone spoke French. Listening to a synthetic voice was still the hardest part.</p><p><b>Next:</b> a native speaker's voice, a replay button and shorter phrases.</p></div>
+    </div>
+  </section>
 
   <figure>
     <img src="img/05-results-across-rounds.jpg" alt="Chart comparing the three rounds. Execution errors fell from 8 of 25 to 0, nouns recalled rose to a median of 5 of 6, and 4 of 4 testers repeated French aloud." width="1600" height="1145">
@@ -98,5 +131,6 @@
 <footer class="site-foot">
   <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>

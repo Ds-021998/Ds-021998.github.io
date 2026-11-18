@@ -13,6 +13,7 @@
     <a class="name" href="index.html">Dattatray Siraskar</a>
     <nav aria-label="Main">
       <a href="index.html#work">Work</a>
+      <a href="experience.html">Experience</a>
       <a href="index.html#about">About</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -47,6 +48,14 @@
     <p>I built the team's Business Model Canvas and Value Proposition Canvas. The course method marked each item as a hypothesis, a fact or killed. I added a fourth state, so an idea backed by one or two people was never presented as fact alongside one backed by many.</p>
   </div>
 
+  <div class="states" role="group" aria-label="Evidence states" data-explain="state-out">
+    <button type="button" aria-pressed="false"><b>Accepted</b><template><p><b>Accepted:</b> at least 3 participants across at least 2 independent researchers, pointing the same way, with nothing contradicting it. The only items stated as fact.</p></template></button>
+    <button type="button" aria-pressed="false"><b>Emerging</b><template><p><b>Emerging:</b> 1 or 2 participants, or 3 or more from a single researcher. Real evidence, but below the bar, so it was carried into the next round to test. This is the state I added.</p></template></button>
+    <button type="button" aria-pressed="false"><b>Assumption</b><template><p><b>Assumption:</b> no interview evidence yet, only literature, desk research or team reasoning. However strong the source, it stays an assumption until a participant confirms it.</p></template></button>
+    <button type="button" aria-pressed="false"><b>Refuted</b><template><p><b>Refuted:</b> contradicted by our own interviews. Kept on the canvas, struck through, so the team could see what we had ruled out.</p></template></button>
+  </div>
+  <div class="state-out prose" id="state-out" aria-live="polite"></div>
+
   <figure>
     <img src="img/05-iteration1-business-model-canvas.jpg" alt="Business Model Canvas key showing four evidence states: Accepted, Emerging, Assumption and Refuted." width="1440" height="900">
     <figcaption>Accepted needed at least three participants across at least two researchers. Everything else was labelled for what it was.</figcaption>
@@ -55,6 +64,34 @@
   <div class="prose">
     <h2>Five requirements that were really one</h2>
     <p>The team proposed 10 requirements. When I graded them, five turned out to be different views of the same object: the marking criterion. That became our value proposition. I cut four others, including a leaderboard and a help forum, with a reason for each.</p>
+  </div>
+
+  <section class="sorter" aria-labelledby="sort-h">
+    <h3 id="sort-h">Try it: sort the team's 10 requirements</h3>
+    <div class="controls">
+      <button type="button" data-mode="raw" aria-pressed="true">As proposed</button>
+      <button type="button" data-mode="sorted" aria-pressed="false">Show my verdicts</button>
+    </div>
+    <div class="groups">
+      <div class="group g-all"><ul class="reqs">
+          <li class="req" data-v="core"><span class="t">Tutor uploads the brief and the app pulls out what's assessed</span><span class="why">Written once, reused across every script</span></li>
+          <li class="req" data-v="core"><span class="t">Tutor sets checkpoints and marks against them</span><span class="why">Turns a blank comment box into a few clicks</span></li>
+          <li class="req" data-v="core"><span class="t">Tutor answers questions without re-reading the script</span><span class="why">The checkpoint is the shared context</span></li>
+          <li class="req" data-v="cut"><span class="t">Checkpoints hidden from students</span><span class="why">Hides the standard students are marked on, which is the problem itself</span></li>
+          <li class="req" data-v="core"><span class="t">Students see which skills an assessment builds</span><span class="why">Real only if the skills are the actual marking criteria</span></li>
+          <li class="req" data-v="core"><span class="t">A skills dashboard across courses</span><span class="why">Kept private, with no ranking</span></li>
+          <li class="req" data-v="fix"><span class="t">Live chat between tutor and student</span><span class="why">Right goal, but a tutor paid per script can't be on call. Made it asynchronous and tied to a checkpoint</span></li>
+          <li class="req" data-v="cut"><span class="t">Class help guide and forum</span><span class="why">UQ already has Ed Discussion for this</span></li>
+          <li class="req" data-v="cut"><span class="t">Achievements and a leaderboard</span><span class="why">Public ranking discourages the students we were trying to help</span></li>
+          <li class="req" data-v="cut"><span class="t">Market skills newsletter</span><span class="why">A different product for a different person</span></li>
+      </ul></div>
+      <div class="group g-core"><h3>One object: the marking criterion (5)</h3><ul class="reqs"></ul></div>
+      <div class="group g-fix"><h3>Reshaped (1)</h3><ul class="reqs"></ul></div>
+      <div class="group g-cut"><h3>Cut (4)</h3><ul class="reqs"></ul></div>
+    </div>
+  </section>
+
+  <div class="prose">
     <p>I wrote the prototype plan, an eight-screen test flow at three levels of fidelity, and built the "Feedback to Action" prototype. Several of us built prototypes, and the team chose mine for group testing because it matched the agreed requirements most closely.</p>
   </div>
 
@@ -108,5 +145,6 @@
 <footer class="site-foot">
   <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
