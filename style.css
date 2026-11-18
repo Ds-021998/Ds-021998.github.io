@@ -51,6 +51,7 @@ li + li { margin-top: 0.4rem; }
 .tile { background: var(--tile); border-radius: var(--radius); padding: 28px; position: relative; overflow: hidden; }
 .tile.span2 { grid-column: span 2; }
 .tile.span3 { grid-column: span 3; }
+.tile.span4 { grid-column: 1 / -1; }
 .tile.tall { grid-row: span 2; }
 .tile.dark { background: var(--ink); color: #fff; }
 .tile.dark .label { color: #b8b8c6; }
@@ -97,6 +98,20 @@ li + li { margin-top: 0.4rem; }
 .pill.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6); }
 .pill.ghost:hover { color: #fff; border-color: #fff; }
 .small-print { color: var(--muted); font-size: 0.95rem; padding: 0.5rem 4px 0; }
+
+/* Skills tile with filter pills */
+.skills-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.skills h2 { margin: 0; font-size: 1.6rem; }
+.filters { display: inline-flex; gap: 0.25rem; padding: 0.3rem; border-radius: 999px; background: var(--ground); flex-wrap: wrap; }
+.filters button { font: inherit; font-size: 0.92rem; font-weight: 600; padding: 0.5rem 0.95rem; border-radius: 999px; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.chips { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chips li { margin: 0; padding: 0.55rem 0.95rem; border-radius: 999px; background: var(--ground); font-size: 0.95rem; transition: background .25s, color .25s, opacity .25s, transform .25s; }
+.chips li[data-g="ba"] { background: var(--accent-soft); color: var(--accent-ink); }
+.chips li[data-g="ux"] { background: var(--lime); color: var(--lime-ink); }
+.chips li.dim { opacity: .25; transform: scale(.96); }
+.certs { margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+.certs b { color: var(--ink); }
 
 /* Stagger the tiles in once on load */
 .bento .tile { animation: rise .6s cubic-bezier(.2,.8,.2,1) both; }
@@ -237,7 +252,7 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.75rem; max-w
 }
 @media (max-width: 560px) {
   .bento { grid-template-columns: 1fr; }
-  .tile.span2, .tile.span3 { grid-column: auto; }
+  .tile.span2, .tile.span3, .tile.span4 { grid-column: auto; }
   .stat { min-height: 160px; }
   .project .shot { height: 220px; }
 }

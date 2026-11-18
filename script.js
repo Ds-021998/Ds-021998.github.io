@@ -197,3 +197,14 @@
     requestAnimationFrame(step);
   });
 })();
+
+// Skills tile: filter pills dim the chips outside the chosen area
+(function () {
+  const box = document.querySelector(".skills");
+  if (!box) return;
+  const btns = [...box.querySelectorAll(".filters button")], chips = [...box.querySelectorAll(".chips li")];
+  btns.forEach((b) => b.addEventListener("click", () => {
+    btns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    chips.forEach((c) => c.classList.toggle("dim", b.dataset.f !== "all" && c.dataset.g !== b.dataset.f));
+  }));
+})();
