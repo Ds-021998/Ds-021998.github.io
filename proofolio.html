@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Proofolio case study, Dattatray Siraskar</title>
 <meta name="description" content="Proofolio: turning university marker feedback into a verified record of what a student can do.">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 <header class="site-head">
@@ -30,9 +30,11 @@
       <div><dt>Built with</dt><dd>Django, SQLite</dd></div>
     </dl>
   </section>
+  <div class="case-body">
+  <div class="case-main">
 
   <div class="prose">
-    <h2>The problem</h2>
+    <h2 id="the-problem">The problem</h2>
     <p>In large university courses, feedback breaks down at both ends. Marks often arrive after the next assignment has started, and comments are short because sessional tutors are paid by the minute. Meanwhile, what a tutor notices while marking never reaches the coordinator or next semester's tutors, because most sessional staff don't come back.</p>
   </div>
 
@@ -42,7 +44,7 @@
   </div>
 
   <div class="prose">
-    <h2>Testing the problem with 32 interviews</h2>
+    <h2 id="testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</h2>
     <p>Our team of five interviewed 32 people: students, tutors and an alumnus. I scored five candidate topics on access, evidence, crowding, buildability and ethics, wrote the direction brief the team chose, and conducted five of the interviews.</p>
     <p>I built the team's Business Model Canvas and Value Proposition Canvas. The course method marked each item as a hypothesis, a fact or killed. I added a fourth state, so an idea backed by one or two people was never presented as fact alongside one backed by many.</p>
   </div>
@@ -61,7 +63,7 @@
   </figure>
 
   <div class="prose">
-    <h2>Five requirements that were really one</h2>
+    <h2 id="five-requirements-that-were-really-one">Five requirements that were really one</h2>
     <p>The team proposed 10 requirements. When I graded them, five turned out to be different views of the same object: the marking criterion. That became our value proposition. I cut four others, including a leaderboard and a help forum, with a reason for each.</p>
   </div>
 
@@ -100,7 +102,7 @@
   </figure>
 
   <div class="prose">
-    <h2>The pivot</h2>
+    <h2 id="the-pivot">The pivot</h2>
     <p>Testing with a tutor mentor and the course coordinator showed that explaining feedback was too thin. ChatGPT already does it for free. But in my usability interviews, both participants asked, without prompting, for a university-verified record of their skills to show employers.</p>
     <p>So I reframed the product. AI made explaining feedback free, but a qualified person's dated judgement of what a student actually did is still scarce. I defined four roles for the product: the student as user, the coordinator as champion, the tutor as gatekeeper and the faculty as buyer. Then I built a second prototype around that.</p>
   </div>
@@ -111,7 +113,7 @@
   </figure>
 
   <div class="prose">
-    <h2>Building the MVP</h2>
+    <h2 id="building-the-mvp">Building the MVP</h2>
     <p>The team picked me and one teammate to build the app. I made the templates, styling and copy for every screen, the student views, the seed data and the documentation. My teammate built the data models, the tutor and coordinator views, the access tests and the deployment.</p>
     <ul>
       <li>18 pages and 9 database tables, with access rules for students, tutors and coordinators</li>
@@ -130,9 +132,30 @@
   </figure>
 
   <div class="role">
-    <h2>My role</h2>
+    <h2 id="my-role">My role</h2>
     <p>Topic research and direction, five interviews, the Business Model and Value Proposition Canvases, requirements grading, the prototype plan, both prototypes, usability testing, the pivot, and co-building the MVP. Some research and design documents were drafted with Claude from my direction, decisions and interview data.</p>
     <p><a href="https://github.com/Ds-021998/proofolio">App code, prototypes and research on GitHub</a></p>
+  </div>
+
+  </div>
+  <aside class="case-aside" aria-label="Case study summary">
+    <div class="aside-card">
+      <p class="aside-label">At a glance</p>
+      <div class="glance"><b>32</b><span>interviews across the team</span></div>
+      <div class="glance"><b>5 of 10</b><span>requirements were really one object</span></div>
+      <div class="glance"><b>18</b><span>pages in the working app</span></div>
+      <div class="glance"><b>0</b><span>WCAG AA violations</span></div>
+    </div>
+    <nav class="aside-card toc" aria-label="On this page">
+      <p class="aside-label">On this page</p>
+      <a href="#the-problem">The problem</a>
+      <a href="#testing-the-problem-with-32-interviews">Testing the problem with 32 interviews</a>
+      <a href="#five-requirements-that-were-really-one">Five requirements that were really one</a>
+      <a href="#the-pivot">The pivot</a>
+      <a href="#building-the-mvp">Building the MVP</a>
+    </nav>
+    <a class="aside-card aside-link" href="https://github.com/Ds-021998/proofolio">App code and research on GitHub</a>
+  </aside>
   </div>
 
   <nav class="next" aria-label="More work">
@@ -144,6 +167,6 @@
 <footer class="site-foot">
   <div class="wrap"><span>Dattatray Siraskar, Brisbane</span><a href="https://www.linkedin.com/in/dattatray-s-410359129">LinkedIn</a><a href="https://github.com/Ds-021998">GitHub</a></div>
 </footer>
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>

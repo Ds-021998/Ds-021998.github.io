@@ -151,6 +151,27 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.75rem; max-w
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
+/* Case study two-column layout: story on the left, a sticky summary on the right */
+.case-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 3rem; align-items: start; }
+.case-main { min-width: 0; }
+.case-main .prose { max-width: 46rem; }
+.case-main > :first-child h2, .case-main > div:first-child > h2:first-child { margin-top: 1rem; }
+.case-aside { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 12px; padding-top: 1.5rem; }
+.aside-card { display: block; background: var(--ground); border-radius: 22px; padding: 1.25rem 1.3rem; }
+.aside-label { margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+.glance { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.55rem 0; border-top: 1px solid #dcdfe6; }
+.glance:first-of-type { border-top: 0; padding-top: 0; }
+.glance b { min-width: 4.2rem; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; color: var(--accent); }
+.glance span { font-size: 0.9rem; color: var(--muted); line-height: 1.35; }
+.toc { display: flex; flex-direction: column; gap: 0.15rem; }
+.toc a { text-decoration: none; color: var(--muted); font-size: 0.93rem; padding: 0.4rem 0.65rem; border-radius: 10px; line-height: 1.35; transition: background .2s, color .2s; }
+.toc a:hover { background: var(--tile); color: var(--ink); }
+.toc a.active { background: var(--tile); color: var(--accent-ink); font-weight: 600; }
+.aside-link { font-weight: 600; text-decoration: none; background: var(--ink); color: #fff; }
+.aside-link:hover { background: var(--accent); color: #fff; }
+.case-main h2 { scroll-margin-top: 90px; }
+.case-main .rounds-ui, .case-main .codes, .case-main .states { max-width: none; }
+
 /* Experience: same layout, bento styling */
 .story-intro { padding-block: 3.5rem 1rem; }
 .story-intro .lede { font-size: 1.15rem; color: var(--muted); margin-top: 1.25rem; }
@@ -240,6 +261,11 @@ figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.75rem; max-w
 .site-foot { color: var(--muted); font-size: 0.9rem; }
 .site-foot .wrap { padding-block: 1rem 2.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
 
+@media (max-width: 1000px) {
+  .case-body { grid-template-columns: 1fr; gap: 0; }
+  .case-aside { position: static; order: -1; padding-top: 0; }
+  .case-aside .toc, .case-aside .aside-link { display: none; }
+}
 @media (max-width: 900px) {
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tile.span3 { grid-column: span 2; }

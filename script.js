@@ -208,3 +208,14 @@
     chips.forEach((c) => c.classList.toggle("dim", b.dataset.f !== "all" && c.dataset.g !== b.dataset.f));
   }));
 })();
+
+// Case studies: highlight the section you are reading in the side menu
+(function () {
+  const links = [...document.querySelectorAll(".toc a")];
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) { links.forEach((l) => l.classList.remove("active")); const a = map.get(e.target.id); if (a) a.classList.add("active"); }
+  }), { rootMargin: "-20% 0px -70% 0px" });
+  map.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
+})();
