@@ -17,8 +17,14 @@
   let pts = [], mouse = { x: -9999, y: -9999 }, progress = 0, shown = 0;
   const COLORS = ["#4338ca", "#4338ca", "#6d5ef5", "#9aa0b4", "#84cc16"];
 
-  let L = 0, R = 0;
+  let L = 0, R = 0, T = 0, B = 0, mobile = false;
   function roadPoint(t) {
+    if (mobile) {
+      // Phones: the road winds down the screen, under the heading
+      const y = T + (B - T) * t;
+      const x = W * (0.5 + 0.27 * Math.sin(t * Math.PI * 2.2 + 0.6));
+      return [x, y];
+    }
     // A winding road across the content width, left to right, with gentle S bends
     const x = L + (R - L) * t;
     const y = H * (0.62 + 0.16 * Math.sin(t * Math.PI * 2.2 + 0.6));
@@ -32,9 +38,17 @@
     canvas.style.width = W + "px"; canvas.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const pinEl = document.querySelector(".road-pin");
+    mobile = W < 901;
+    const hdr = document.querySelector("header, .site-head, .top");
+    if (hdr && getComputedStyle(hdr).position !== "static") root.style.setProperty("--hdr", hdr.offsetHeight + "px");
     if (pinEl) { const pr = pinEl.getBoundingClientRect(); L = pr.left + 100; R = pr.right - 100; }
     else { L = W * 0.06; R = W * 0.94; }
-    const n = Math.round(Math.min(420, (W * H) / 4200)) * (isHome ? 1 : 0.55);
+    const subEl = document.querySelector(".road-sub");
+    if (mobile && pinEl && subEl) {
+      T = subEl.getBoundingClientRect().bottom - pinEl.getBoundingClientRect().top + 48;
+      B = H - 56;
+    }
+    const n = Math.round(Math.min(420, (W * H) / (mobile ? 1700 : 4200))) * (isHome ? 1 : 0.55);
     pts = [];
     for (let i = 0; i < n; i++) {
       // Target: most points on the road, some clustered at milestones
@@ -72,11 +86,23 @@
     return Math.min(1, p * 1.25) * fade;
   }
   function placeLabels(e) {
-    if (!labels.length || W < 901 || reduce) return;
+    if (!labels.length || reduce) return;
     const pin = stage.querySelector(".road-pin").getBoundingClientRect();
     labels.forEach((li, i) => {
       const [x, y] = roadPoint(MILESTONES[i]);
       const show = Math.max(0, Math.min(1, (e - 0.25 - i * 0.12) / 0.2));
+      if (mobile) {
+        // Label sits beside its stop, on whichever side has more room
+        const right = x < W / 2;
+        const room = right ? W - x - 34 : x - 34;
+        li.style.width = Math.min(170, room) + "px";
+        li.style.left = x - pin.left + (right ? 22 : -22) + "px";
+        li.style.top = y - pin.top + "px";
+        li.style.opacity = show;
+        li.style.transform = `translate(${right ? "0" : "-100%"}, -50%) translateX(${(1 - show) * (right ? -10 : 10)}px)`;
+        return;
+      }
+      li.style.width = "";
       const above = i % 2 === 0;
       li.style.left = x - pin.left + "px";
       li.style.top = y - pin.top + (above ? -34 : 34) + "px";
@@ -154,7 +180,16 @@
   }
 
   build();
-  window.addEventListener("resize", () => { build(); if (reduce) frame(performance.now()); });
+  let lastW = window.innerWidth, lastH = window.innerHeight;
+  window.addEventListener("resize", () => {
+    // Phones resize when the address bar hides; don't reshuffle the field for that
+    const w = window.innerWidth, h = window.innerHeight;
+    if (w === lastW && Math.abs(h - lastH) < 160) return;
+    lastW = w; lastH = h;
+    build(); if (reduce) frame(performance.now());
+  });
+  window.addEventListener("pointerup", (ev) => { if (ev.pointerType !== "mouse") mouse.x = mouse.y = -9999; });
+  window.addEventListener("pointercancel", () => { mouse.x = mouse.y = -9999; });
   window.addEventListener("pointermove", (ev) => { mouse.x = ev.clientX; mouse.y = ev.clientY; }, { passive: true });
   window.addEventListener("pointerleave", () => { mouse.x = mouse.y = -9999; });
   if (reduce) { shown = 0; frame(performance.now()); } else requestAnimationFrame(frame);

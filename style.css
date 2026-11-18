@@ -394,11 +394,12 @@ main, .site-foot { position: relative; z-index: 1; }
 .milestones li:last-child { background: var(--lime); color: var(--lime-ink); }
 .milestones li:last-child b { color: #3f4a1b; }
 @media (max-width: 900px) {
-  .road-stage { height: auto; }
-  .road-pin { position: static; height: auto; overflow: visible; padding-bottom: 2rem; }
-  .road-title { padding-top: 2rem; }
-  .milestones { display: grid; gap: .6rem; margin-top: 1.25rem; }
-  .milestones li { position: static; width: auto; text-align: left; opacity: 1 !important; transform: none !important; }
+  .road-stage { height: 260vh; }
+  .road-pin { height: 100vh; height: 100svh; }
+  .road-title { padding-top: calc(var(--hdr, 120px) + 3vh); font-size: 2.2rem; }
+  .road-sub { font-size: 1rem; }
+  .milestones li { text-align: left; font-size: .88rem; padding: .55rem .7rem; border-radius: 14px; }
+  .milestones li b { font-size: .75rem; margin-bottom: .1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .road-stage { height: auto; }
